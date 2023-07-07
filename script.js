@@ -1,93 +1,106 @@
-const themeToggle = document.getElementById('themeToggle');
-const body = document.body;
+$(document).ready(function() {
+  var $container = $('.container');
+  var $leftSection = $('.one-half.left');
+  var $rightSection = $('.one-half.right');
+  var $h1l = $('.h1-l');
+  var $h1r = $('.h1-r');
 
-themeToggle.addEventListener('click', function() {
-  body.classList.toggle('theme-gray');
-  body.classList.toggle('theme-white');
-});
-
-// Placeholder data for prompt cards
-const promptData = [
-    { title: 'Favorite Book', description: 'What is your all-time favorite book and why?' },
-    { title: 'Dream Vacation', description: 'If you could go on a dream vacation anywhere in the world, where would you go and what would you do?' },
-    { title: 'Life Advice', description: 'What is the best piece of advice you have ever received?' },
-    // Add more prompt objects as needed
-  ];
-  
-const promptCardsContainer = document.querySelector('.prompt-cards');
-
-// Function to generate prompt cards dynamically
-function generatePromptCards() {
-  promptCardsContainer.innerHTML = '';
-
-  promptData.forEach((prompt) => {
-    const card = document.createElement('div');
-    card.classList.add('card');
-    card.innerHTML = `
-      <div class="card-front">
-        <h3>${prompt.title}</h3>
-        <p>${prompt.description}</p>
-      </div>
-      <div class="card-back">
-        <h3>${prompt.title}</h3>
-        <div class="buttons">
-          <button class="favorite-btn">Favorite</button>
-          <button class="copy-btn">Copy</button>
-        </div>
-      </div>
-    `;
-
-    card.addEventListener('click', function () {
-      card.classList.toggle('flipped');
-    });
-
-    promptCardsContainer.appendChild(card);
+  $leftSection.click(function() {
+    if ($container.hasClass('left-is-hovered')) {
+      $container.removeClass('left-is-hovered');
+    } else {
+      $container.removeClass('right-is-hovered');
+      $container.addClass('left-is-hovered');
+    }
   });
-}
 
-generatePromptCards();
+  $rightSection.click(function() {
+    if ($container.hasClass('right-is-hovered')) {
+      $container.removeClass('right-is-hovered');
+    } else {
+      $container.removeClass('left-is-hovered');
+      $container.addClass('right-is-hovered');
+    }
+  });
 
-// Filter functionality
-const filterToggle = document.getElementById('filterToggle');
-const filterModal = document.querySelector('.filter-modal');
+  function adjustSectionSize() {
+    var screenWidth = $(window).width();
+    if (screenWidth > 768) {
+      $leftSection.off('mouseenter mouseleave').hover(
+        function() {
+          if (!$container.hasClass('left-is-hovered')) {
+            $leftSection.css('width', '70%');
+            $rightSection.css('width', '30%');
+            $h1l.css('font-size', '3vw');
+            $h1r.css('font-size', '2vw');
+          }
+        },
+        function() {
+          if (!$container.hasClass('left-is-hovered')) {
+            $leftSection.css('width', '50%');
+            $rightSection.css('width', '50%');
+            $h1l.css('font-size', '2vw');
+            $h1r.css('font-size', '2vw');
+          }
+        }
+      );
 
-filterToggle.addEventListener('click', function () {
-  filterModal.classList.toggle('show');
-});
+      $rightSection.off('mouseenter mouseleave').hover(
+        function() {
+          if (!$container.hasClass('right-is-hovered')) {
+            $rightSection.css('width', '70%');
+            $leftSection.css('width', '30%');
+            $h1r.css('font-size', '3vw');
+            $h1l.css('font-size', '2vw');
+          }
+        },
+        function() {
+          if (!$container.hasClass('right-is-hovered')) {
+            $rightSection.css('width', '50%');
+            $leftSection.css('width', '50%');
+            $h1l.css('font-size', '2vw');
+            $h1r.css('font-size', '2vw');
+          }
+        }
+      );
 
-// Search functionality
-constsearchInput = document.getElementById('searchInput');
 
-searchInput.addEventListener('input', function () {
-const searchTerm = searchInput.value.toLowerCase();
+    } else {
+      $leftSection.off('mouseenter mouseleave').hover(
+        function() {
+          if (!$container.hasClass('left-is-hovered')) {
+            $leftSection.css('height', '60%');
+            $rightSection.css('height', '40%');
+            $h1l.css('font-size', '9vw');
+          }
+        },
+        function() {
+          if (!$container.hasClass('left-is-hovered')) {
+            $leftSection.css('height', '50%');
+            $rightSection.css('height', '50%');
+            $h1l.css('font-size', '8vw');
+          }
+        }
+      );
 
-promptData.forEach((prompt) => {
-    const card = promptCardsContainer.querySelector(`[data-title="${prompt.title}"]`);
-if (prompt.title.toLowerCase().includes(searchTerm) || prompt.description.toLowerCase().includes(searchTerm)) {
-    card.style.display = 'block';
-  } else {
-    card.style.display = 'none';
+      $rightSection.off('mouseenter mouseleave').hover(
+        function() {
+          if (!$container.hasClass('right-is-hovered')) {
+            $rightSection.css('height', '60%');
+            $leftSection.css('height', '40%');
+            $h1r.css('font-size', '9vw');
+          }
+        },
+        function() {
+          if (!$container.hasClass('right-is-hovered')) {
+            $rightSection.css('height', '50%');
+            $leftSection.css('height', '50%');
+            $h1l.css('font-size', '8vw');
+          }
+        }
+      );
+    }
   }
-});
-});
 
-// Complete the filter functionality
-// You can add your specific filtering options and logic here
-
-// Favorite button functionality
-const favoriteButtons = document.querySelectorAll('.favorite-btn');
-
-favoriteButtons.forEach((button) => {
-button.addEventListener('click', function () {
-// Handle the favorite button action here
-});
-});
-
-// Copy button functionality
-const copyButtons = document.querySelectorAll('.copy-btn');
-
-copyButtons.forEach((button) => {
-button.addEventListener('click', function () {
-// Handle the copy button action here
-});
+  $(window).on('load resize', adjustSectionSize);
 });

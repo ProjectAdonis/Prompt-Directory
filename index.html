@@ -1,31 +1,26 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Prompt Directory</title>
   <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
-  <header>
-    <nav>
-      <div class="logo">Prompt Directory</div>
-      <div class="menu">
-        <button id="themeToggle">Change Theme</button>
-        <button id="filterToggle">Filter</button>
-        <input type="text" id="searchInput" placeholder="Search...">
+  <div class='screen'>
+    <div class="container">
+      <div class="one-half left">
+        <h1 class="h1-l">Stable Diffusion Prompts</h1>
+        <a href="#" class="cta">Let's Go</a>
       </div>
-    </nav>
-  </header>
-  
-  <main>
-    <div class="prompt-cards">
-      <!-- Prompt cards will be dynamically generated here -->
+      <div class="one-half right">
+        <h1 class="h1-r">ChatGPT Prompts</h1>
+        <a href="#" class="cta">Let's Go</a>
+      </div>
     </div>
-  </main>
-  
-  <footer>
-    <p>&copy; 2023 Prompt Directory. All rights reserved.</p>
-  </footer>
+  </div>
 
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
