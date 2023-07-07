@@ -71,14 +71,12 @@ $(document).ready(function() {
           if (!$container.hasClass('left-is-hovered')) {
             $leftSection.css('height', '60%');
             $rightSection.css('height', '40%');
-            $h1l.css('font-size', '9vw');
           }
         },
         function() {
           if (!$container.hasClass('left-is-hovered')) {
             $leftSection.css('height', '50%');
             $rightSection.css('height', '50%');
-            $h1l.css('font-size', '8vw');
           }
         }
       );
@@ -88,14 +86,12 @@ $(document).ready(function() {
           if (!$container.hasClass('right-is-hovered')) {
             $rightSection.css('height', '60%');
             $leftSection.css('height', '40%');
-            $h1r.css('font-size', '9vw');
           }
         },
         function() {
           if (!$container.hasClass('right-is-hovered')) {
             $rightSection.css('height', '50%');
             $leftSection.css('height', '50%');
-            $h1l.css('font-size', '8vw');
           }
         }
       );
