@@ -151,6 +151,7 @@ html, body {
     left: 0;
     background: url("assets/home/sd.png") center center no-repeat;
     background-size: cover;
+    filter: brightness(100%)
   }
   .container .one-half.left:before {
     content: '';
@@ -163,6 +164,7 @@ html, body {
     right: 0;
     background: url("assets/home/gpt.png") center center no-repeat;
     background-size: cover;
+    filter: brightness(100%)
   }
   .container .one-half.right:before {
     content: '';
