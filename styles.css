@@ -11,7 +11,6 @@ html, body {
   width: 101%;
   }
 
-
   ::selection {
     background-color: rgb(204, 198, 187);
   }
@@ -254,8 +253,9 @@ html, body {
     transform: translateX(48px);
   }
 
-  @media (max-width: 850px) {
+  @media (max-height: 850px) {
     .checkbox-label {
+      top: 7px;
       width: 50px;
       height: 26px;
       border-radius: 50px;
@@ -267,11 +267,17 @@ html, body {
       left: 2px;
       top: 2px;
       border-radius: 50%;
-
+  
     }
     .checkbox:checked + .checkbox-label .ball {
       transform: translateX(24px);
     }
-    .fa-moon {color: lightseagreen;}
-    .fa-sun {color: goldenrod;}
+    .fa-moon {
+      color: lightseagreen; 
+      height: 225%;
+    }
+    .fa-sun {
+      color: goldenrod; 
+      height: 225%;
+    } 
   }
