@@ -1,41 +1,18 @@
-// external js: isotope.pkgd.js
+//  JQUERY SEARCH FILTER - Credits: //codepen.io/alexerlandsson/pen/ZbyRoO
+// --------------------------
+// 1) Add [data-search] to search input
+// 2) Add [data-filter-item] to the items that should be filtered
+// 3) Add [data-filter-name="SEARCH TERM"] to the filter-items (lowercase)
 
-// init Isotope
-var $grid = $('.grid').isotope({
-    itemSelector: '.musour-icon'
-  });
-  
-  // store filter for each group
-  var filters = {};
-  
-  $('.filters').on( 'click', '.button', function( event ) {
-    var $button = $( event.currentTarget );
-    // get group key
-    var $buttonGroup = $button.parents('.button-group');
-    var filterGroup = $buttonGroup.attr('data-filter-group');
-    // set filter for group
-    filters[ filterGroup ] = $button.attr('data-filter');
-    // combine filters
-    var filterValue = concatValues( filters );
-    // set filter for Isotope
-    $grid.isotope({ filter: filterValue });
-  });
-  
-  // change is-checked class on buttons
-  $('.button-group').each( function( i, buttonGroup ) {
-    var $buttonGroup = $( buttonGroup );
-    $buttonGroup.on( 'click', 'button', function( event ) {
-      $buttonGroup.find('.is-checked').removeClass('is-checked');
-      var $button = $( event.currentTarget );
-      $button.addClass('is-checked');
-    });
-  });
-    
-  // flatten object by concatting values
-  function concatValues( obj ) {
-    var value = '';
-    for ( var prop in obj ) {
-      value += obj[ prop ];
-    }
-    return value;
-  }
+$('[data-search]').on('keyup', function () {
+	var searchVal = $(this).val();
+	var filterItems = $('[data-filter-item]');
+
+	if (searchVal != '') {
+		filterItems.addClass('hidden');
+		$('[data-filter-item][data-filter-name*="' + searchVal.toLowerCase() + '"]').removeClass('hidden');
+	} else {
+		filterItems.removeClass('hidden');
+	}
+});
+
