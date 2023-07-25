@@ -1,22 +1,77 @@
-//  JQUERY SEARCH FILTER - Credits: //codepen.io/alexerlandsson/pen/ZbyRoO
-// --------------------------
-// 1) Add [data-search] to search input
-// 2) Add [data-filter-item] to the items that should be filtered
-// 3) Add [data-filter-name="SEARCH TERM"] to the filter-items (lowercase)
 
+// Filter/Dropdown menu system
+const filtersDropdown = document.querySelector('.filters-dropdown');
+const cardsDiv = document.querySelector('.cards');
+const pageNcontentMain = document.querySelector('.page-ncontent');
+const header = document.querySelector('.header');
 
-$(document).ready(function() {
+filtersDropdown.addEventListener('change', function () {
+  const selectedValue = filtersDropdown.value;
+
+  switch (selectedValue) {
+	case 'all':
+	  cardsDiv.style.display = 'inline-block';
+	  pageNcontentMain.style.display = 'grid';
+	  pageNcontentMain.style.transform = 'translateY(0)';
+	  header.style.transform = 'translateY(0)';
+	  break;
+	case 'positive':
+	  cardsDiv.style.display = 'inline-block';
+	  pageNcontentMain.style.display = 'none';
+	  pageNcontentMain.style.transform = 'translateY(0)';
+	  header.style.transform = 'translateY(0)';
+	  break;
+	case 'negative':
+	  cardsDiv.style.display = 'none';
+	  pageNcontentMain.style.display = 'grid';
+	  pageNcontentMain.style.transform = 'translateY(-75%)';
+	  header.style.transform = 'translateY(-164%)';
+	  break;
+	default:
+	  break;
+	}
+});
+    
+ 
+ // Positive cards system
+ $(document).ready(function(){
+	var zindex = 10;
+	
+	$("div.card").click(function(e){
+	  e.preventDefault();
+	  
+	  var isShowing = false;
   
-	$('[data-search]').on('keyup', function () {
-	  var searchVal = $(this).val();
-	  var filterItems = $('[data-filter-item]');
-  
-	  if (searchVal !== '') {
-		filterItems.addClass('hidden');
-		$('[data-filter-item][data-filter-name*="' + searchVal.toLowerCase() + '"]').removeClass('hidden');
-	  } else {
-		filterItems.removeClass('hidden');
+	  if ($(this).hasClass("show")) {
+		isShowing = true;
 	  }
+  
+	  if ($("div.cards").hasClass("showing")) {
+		$("div.card.show")
+		  .removeClass("show");
+  
+		if (isShowing) {
+		  $("div.cards")
+			.removeClass("showing");
+		} else {
+		  $(this)
+			.css({zIndex: zindex})
+			.addClass("show");
+		}
+  
+		zindex++;
+	  } else {
+		$("div.cards")
+		  .addClass("showing");
+		$(this)
+		  .css({zIndex: zindex})
+		  .addClass("show");
+  
+		zindex++;
+	  }   
 	});
   });
 
+
+  
+  
