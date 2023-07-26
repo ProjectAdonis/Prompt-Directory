@@ -1,75 +1,76 @@
 
-// Filter/Dropdown menu system
-const filtersDropdown = document.querySelector('.filters-dropdown');
-const cardsDiv = document.querySelector('.cards');
-const pageNcontentMain = document.querySelector('.page-ncontent');
-const header = document.querySelector('.header');
+// Positive cards system
+$(document).ready(function(){
+var zindex = 10;
 
-filtersDropdown.addEventListener('change', function () {
-  const selectedValue = filtersDropdown.value;
-
-  switch (selectedValue) {
-	case 'all':
-	  cardsDiv.style.display = 'inline-block';
-	  pageNcontentMain.style.display = 'grid';
-	  pageNcontentMain.style.transform = 'translateY(0)';
-	  header.style.transform = 'translateY(0)';
-	  break;
-	case 'positive':
-	  cardsDiv.style.display = 'inline-block';
-	  pageNcontentMain.style.display = 'none';
-	  pageNcontentMain.style.transform = 'translateY(0)';
-	  header.style.transform = 'translateY(0)';
-	  break;
-	case 'negative':
-	  cardsDiv.style.display = 'none';
-	  pageNcontentMain.style.display = 'grid';
-	  pageNcontentMain.style.transform = 'translateY(-45%)';
-	  break;
-	default:
-	  break;
-	}
-});
-    
- 
- // Positive cards system
- $(document).ready(function(){
-	var zindex = 10;
+$("div.card").click(function(e){
+	e.preventDefault();
 	
-	$("div.card").click(function(e){
-	  e.preventDefault();
-	  
-	  var isShowing = false;
-  
-	  if ($(this).hasClass("show")) {
-		isShowing = true;
-	  }
-  
-	  if ($("div.cards").hasClass("showing")) {
-		$("div.card.show")
-		  .removeClass("show");
-  
-		if (isShowing) {
-		  $("div.cards")
-			.removeClass("showing");
-		} else {
-		  $(this)
-			.css({zIndex: zindex})
-			.addClass("show");
-		}
-  
-		zindex++;
-	  } else {
-		$("div.cards")
-		  .addClass("showing");
+	var isShowing = false;
+
+	if ($(this).hasClass("show")) {
+	isShowing = true;
+	}
+
+	if ($("div.pcards").hasClass("showing")) {
+	$("div.card.show")
+		.removeClass("show");
+
+	if (isShowing) {
+		$("div.pcards")
+		.removeClass("showing");
+	} else {
 		$(this)
-		  .css({zIndex: zindex})
-		  .addClass("show");
-  
-		zindex++;
-	  }   
+		.css({zIndex: zindex})
+		.addClass("show");
+	}
+
+	zindex++;
+	} else {
+	$("div.pcards")
+		.addClass("showing");
+	$(this)
+		.css({zIndex: zindex})
+		.addClass("show");
+
+	zindex++;
+	}   
+});
+});
+
+
+//nav bar
+
+let selectedItem;
+
+function selectItem(e) {
+if (this === selectedItem) return;
+selectedItem.classList.remove('selected');
+this.classList.add('selected');
+selectedItem = this;
+}
+
+function init() {
+selectedItem = document.querySelector('li.selected');
+const items = document.querySelectorAll('a');
+items.forEach((item) => {
+item.addEventListener('click', selectItem, true);
+})
+}
+
+init();
+
+	// Search button
+	const searchButton = document.getElementById("searchButton");
+	const searchInput = searchButton.querySelector("input.search");
+
+	searchButton.addEventListener("click", function (event) {
+	event.preventDefault();
+	searchInput.focus();
 	});
-  });
+
+
+
 
 
   

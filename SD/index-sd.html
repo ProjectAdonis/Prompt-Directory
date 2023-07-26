@@ -8,22 +8,37 @@
   </head>
   
 <body>
-    <header class="header">
-        <div class="header__left">
-          <h1>SD Prompts</h1>
-        </div>
-        <div class="header__right">
-          <input type="text" class="search-bar" placeholder="Search...">
-          <select class="filters-dropdown">
-            <option value="all">ALL</option>
-            <option value="positive">Positive</option>
-            <option value="negative">Negative</option>
-          </select>
-        </div>
-      </header>
+  <div class="root">
+    <nav>
+      <ol>
+        <li class="title">Stable Diffusion Prompts</li>
+        <a class="button" href="#home"><li class="selected">
+          <ion-icon name="home"></ion-icon>
+          <span>Home</span>
+        </li></a>
+        <a class="button" id="searchButton"><li>
+          <ion-icon name="search"></ion-icon>
+          <span><input class="search" type="text" placeholder="Search.."></span>
+        </li></a>
+        <li class="filters">Filters :</li>        
+        <a class="button-filter" href="#home"><li>
+        <ion-icon name="analytics"></ion-icon>
+          <span>ALL</span>
+        </li></a>
+        <a class="button-filter" href="#home"><li>
+          <ion-icon name="add-circle-outline"></ion-icon>
+          <span>Positive</span>
+        </li></a>
+        <a class="button-filter" href="#home"><li>
+          <ion-icon name="remove-circle-outline"></ion-icon>
+          <span>Negative</span>
+        </li></a>
+      </ol>
+    </nav>
+  
     
-    <div class="all-cards">
-    <div class="cards">
+    <main>
+    <div class="pcards">
     
       <div class="card">
         <div class="card__image-holder">
@@ -262,7 +277,7 @@
     </div>  
     
     
-    <main class="page-ncontent">
+    <div class="ncards">
       <div class="ncard">
         <div class="ncontent">
           <h2 class="ntitle">General Negative</h2>
@@ -287,11 +302,15 @@
           <p class="ncopy">Seriously, straight up, just blast off into outer space today</p><button class="nbtn">Copy</button>
         </div>
       </div>
-    </main>
-  </div>
+    </div>
+  </main>
+</div>
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="script-sd.js"></script>
+
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 
 </body>
 </html> 
