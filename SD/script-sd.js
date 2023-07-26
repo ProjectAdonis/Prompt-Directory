@@ -69,9 +69,3 @@ init();
 	searchInput.focus();
 	});
 
-
-
-
-
-  
-  
