@@ -39,7 +39,7 @@ $("div.card").click(function(e){
 });
 
 
-//nav bar
+//desktop nav bar
 
 let selectedItem;
 
@@ -68,4 +68,3 @@ init();
 	event.preventDefault();
 	searchInput.focus();
 	});
-

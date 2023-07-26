@@ -4,60 +4,75 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="styles-sd.css">
-    <meta name="description" content="Stable Diffusion prompt Directory.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <meta name="description" content="Stable Diffusion Prompt Directory.">
   </head>
   
 <body>
 
-    <nav>
+    <nav class="nav-desktop">
       <ol>
         <li class="title">Stable Diffusion Prompts</li>
         <a class="button" href="#home"><li class="selected">
-          <ion-icon name="home"></ion-icon>
+          <i class="fa fa-home" aria-hidden="true"></i>
           <span>Home</span>
         </li></a>
         <a class="button" id="searchButton"><li>
-          <ion-icon name="search"></ion-icon>
+          <i class="fa fa-search" aria-hidden="true"></i>
           <span><input class="search" type="text" placeholder="Search.."></span>
         </li></a>
         <li class="filters">Filters :</li>        
         <a class="button-filter" href="#home"><li>
-        <ion-icon name="analytics"></ion-icon>
+          <i class="fa fa-circle-o" aria-hidden="true"></i>
           <span>ALL</span>
         </li></a>
         <a class="button-filter" href="#home"><li>
-          <ion-icon name="add-circle-outline"></ion-icon>
+          <i class="fa fa-check-circle-o" aria-hidden="true"></i>
           <span>Positive</span>
         </li></a>
         <a class="button-filter" href="#home"><li>
-          <ion-icon name="remove-circle-outline"></ion-icon>
+          <i class="fa fa-ban" aria-hidden="true"></i>
           <span>Negative</span>
         </li></a>
       </ol>
     </nav>
 
-    <div class="navbar">
-      <div class="container nav-container">
-          <input class="checkbox" type="checkbox" name="" id="" />
-          <div class="hamburger-lines">
-            <span class="line line1"></span>
-            <span class="line line2"></span>
-            <span class="line line3"></span>
-          </div>  
-        <div class="logo">
-          <h2>Navbar</h2>
-        </div>
-        <div class="menu-items">
-          <li><a href="#">Home</a></li>
-          <li><a href="#">about</a></li>
-          <li><a href="#">blogs</a></li>
-          <li><a href="#">portfolio</a></li>
-          <li><a href="#">contact</a></li>
-        </div>
-      </div>
-    </div>
+    <label>
+      <input type="checkbox">
+      <span class="menu"> <span class="hamburger"></span> </span>
+      <ul>
+        <li><h1>Stable Diffusion Prompts</h1></li>
+        <li><a href="#">
+          <i class="fa fa-home" aria-hidden="true"></i>
+          <span>Home</span>
+        </li></a>
+        <li>
+          <a id="searchButton">
+            <i class="fa fa-search" aria-hidden="true"></i>
+            <span>
+              <input type="text" placeholder="Search.."> 
+            </span>
+          </a> 
+        </li>
+        <li><h2>Filters :</h2></li> 
+        <li><a href="#">
+          <i class="fa fa-circle-o" aria-hidden="true"></i>
+            <span>ALL</span>
+          </a></li>
+        <li><a href="#">
+          <i class="fa fa-check-circle-o" aria-hidden="true"></i>
+          <span>Positive</span>
+        </a></li>
+        <li><a href="#">
+          <i class="fa fa-ban" aria-hidden="true"></i>
+          <span>Negative</span>
+        </a></li>
+      </ul>
+    </label> 
+
   
     <main>
+
     <div class="pcards">
     
       <div class="card">
@@ -328,9 +343,5 @@
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="script-sd.js"></script>
-
-<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-
 </body>
 </html> 
