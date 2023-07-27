@@ -335,6 +335,7 @@ nav > ol > a:not(.selected):hover::after {
 	 position: relative;
 	 text-decoration: none;
 	 transition: all 0.1s 0s ease-out;
+   cursor: pointer;
 }
  .no-touch a.btn:hover {
 	 background: #FFC95F;
@@ -495,7 +496,6 @@ nav > ol > a:not(.selected):hover::after {
   }
 }
 
-
 /*-----------------------NEGATIVE PROMPTS CARDS----------------------------*/
 
 .ncards {
@@ -626,12 +626,13 @@ nav > ol > a:not(.selected):hover::after {
   color: white;
   background-color: FFC95F;
   border: none;
-}
-.nbtn:hover {
   background-color: #FFC95F;
 }
+.nbtn:hover {
+  background-color: #ffb82a;
+}
 .nbtn:focus {
-  outline: 1px dashed #862B0D;
+  outline: 1px dashed #8a6315;
   outline-offset: 3px;
 }
 @media (hover: hover) and (min-width: 600px) {

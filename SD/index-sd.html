@@ -38,7 +38,7 @@
     </nav>
 
     <label>
-      <input type="checkbox">
+      <input type="checkbox" aria-label="checkbox-menu">
       <span class="menu"> <span class="hamburger"></span> </span>
       <ul>
         <li><h1>Stable Diffusion Prompts</h1></li>
@@ -73,37 +73,71 @@
   
     <main>
 
-    <div class="pcards">
-    <!-- Generate positive prompt cards -->
-    </div>  
+      <div class="pcards">
+    
+        <div class="card">
+          <div class="card__image-holder"><img class="card__image" src="https://source.unsplash.com/300x225/?wave" alt="wave" /></div>
+          <div class="card-title">
+            <a class="toggle-info btn"><span class="left"></span><span class="right"></span></a>
+            <h2>Card title<small>Image from unsplash.com</small></h2></div>
+          <div class="card-flap flap1">
+            <div class="card-description">This grid is an attempt to make something nice that works on touch devices. Ignoring hover states when they're not available etc.</div>
+            <div class="card-flap flap2"><div class="card-actions"><a class="btn" onclick="copyDescription(this)">Copy</a></div></div></div>
+        </div>
+
+        <div class="card">
+          <div class="card__image-holder"><img class="card__image" src="https://source.unsplash.com/300x225/?wave" alt="wave" /></div>
+          <div class="card-title">
+            <a class="toggle-info btn"><span class="left"></span><span class="right"></span></a>
+            <h2>Card title<small>Image from unsplash.com</small></h2></div>
+          <div class="card-flap flap1">
+            <div class="card-description">This grid is an attempt to make something nice that works on touch devices. Ignoring hover states when they're not available etc.</div>
+            <div class="card-flap flap2"><div class="card-actions"><a class="btn" onclick="copyDescription(this)">Copy</a></div></div></div>
+        </div>
+
+        <div class="card">
+          <div class="card__image-holder"><img class="card__image" src="https://source.unsplash.com/300x225/?wave" alt="wave" /></div>
+          <div class="card-title">
+            <a class="toggle-info btn"><span class="left"></span><span class="right"></span></a>
+            <h2>Card title<small>Image from unsplash.com</small></h2></div>
+          <div class="card-flap flap1">
+            <div class="card-description">This grid is an attempt to make something nice that works on touch devices. Ignoring hover states when they're not available etc.</div>
+            <div class="card-flap flap2"><div class="card-actions"><a class="btn" onclick="copyDescription(this)">Copy</a></div></div></div>
+        </div>
+
+
+      </div>  
     
     
     <div class="ncards">
       <div class="ncard">
         <div class="ncontent">
           <h2 class="ntitle">General Negative</h2>
-          <p class="ncopy">Check out all of these gorgeous mountain trips with beautiful views of, you guessed it, the mountains</p><button class="nbtn">Copy</button>
+          <p class="ncopy">Check out all of these gorgeous mountain trips with beautiful views of, you guessed it, the mountains</p><button class="nbtn" onfocus="copyText(this)">Copy</button>
         </div>
       </div>
       <div class="ncard">
         <div class="ncontent">
           <h2 class="ntitle">To The Beach</h2>
-          <p class="ncopy">Plan your next beach trip with these fabulous destinations</p><button class="nbtn">Copy</button>
+          <p class="ncopy">Plan your next beach trip with these fabulous destinations</p><button class="nbtn" onfocus="copyText(this)">Copy</button>
         </div>
       </div>
       <div class="ncard">
         <div class="ncontent">
           <h2 class="ntitle">Desert Destinations</h2>
-          <p class="ncopy">It's the desert you've always dreamed of</p><button class="nbtn">Copy</button>
+          <p class="ncopy">It's the desert you've always dreamed of</p><button class="nbtn" onfocus="copyText(this)">Copy</button>
         </div>
       </div>
       <div class="ncard">
         <div class="ncontent">
           <h2 class="ntitle">Explore The Galaxy</h2>
-          <p class="ncopy">Seriously, straight up, just blast off into outer space today</p><button class="nbtn">Copy</button>
+          <p class="ncopy">Seriously, straight up, just blast off into outer space today</p><button class="nbtn" onfocus="copyText(this)">Copy</button>
         </div>
       </div>
     </div>
+
+
+
   </main>
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
