@@ -39,26 +39,68 @@ $("div.card").click(function(e){
 });
 
 
-//desktop nav bar
+
+
+
 
 let selectedItem;
+  let selectedFilter;
 
-function selectItem(e) {
-if (this === selectedItem) return;
-selectedItem.classList.remove('selected');
-this.classList.add('selected');
-selectedItem = this;
-}
+  // Function to handle the selection of home and search buttons
+  function selectNavItem(e) {
+    if (this === selectedItem) return;
+    if (selectedItem) {
+      selectedItem.classList.remove('selected');
+    }
+    this.classList.add('selected');
+    selectedItem = this;
+  }
 
-function init() {
-selectedItem = document.querySelector('li.selected');
-const items = document.querySelectorAll('a');
-items.forEach((item) => {
-item.addEventListener('click', selectItem, true);
-})
-}
+  // Function to handle the selection of filter buttons
+  function selectFilter(e) {
+    if (this === selectedFilter) return;
+    if (selectedFilter) {
+      selectedFilter.classList.remove('selected');
+    }
+    this.classList.add('selected');
+    selectedFilter = this;
 
-init();
+    // Unselect the home/search bar if selected
+    if (selectedItem) {
+      selectedItem.classList.remove('selected');
+      selectedItem = null;
+    }
+  }
+
+  function init() {
+    const navItems = document.querySelectorAll('a.button');
+    const filterItems = document.querySelectorAll('a.button-filter');
+
+    // Find and set the default filter (ALL) on page load
+    filterItems.forEach((item) => {
+      if (item.querySelector('span').textContent === 'ALL') {
+        selectedFilter = item;
+        selectedFilter.classList.add('selected');
+      }
+    });
+
+    // Add click event listeners for home/search buttons
+    navItems.forEach((item) => {
+      item.addEventListener('click', selectNavItem, true);
+    });
+
+    // Add click event listeners for filter buttons
+    filterItems.forEach((item) => {
+      item.addEventListener('click', selectFilter, true);
+    });
+  }
+
+  init();
+
+
+
+
+
 
 	// Search button
 	const searchButton = document.getElementById("searchButton");

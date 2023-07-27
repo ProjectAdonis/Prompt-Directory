@@ -67,7 +67,7 @@ nav > ol  {
   margin-right: 0;
   padding: calc(var(--nav-padding) * 2) calc(var(--nav-padding) / 2);
   padding-right: 0;
-  padding-top: 31px;
+  padding-top: 30px;
   width: calc(100% - var(--nav-padding));
   height: calc(100% - var(--nav-padding) * 2);
   list-style-type: none;
@@ -95,6 +95,7 @@ nav > ol  {
   cursor: pointer;
   border-radius: var(--nav-padding) 0 0 var(--nav-padding);
   position: relative;
+  user-select: none;
   -webkit-user-select: none;
   text-decoration: none;
 }
@@ -186,22 +187,24 @@ nav > ol > a:not(.selected):hover::after {
 
   label {
     display: block;
+    align-content: center;
   }
 
   label .menu {
     position: absolute;
-    left: 70%;
-    right: -100px;
     top: -100px;
+    display: table;
     z-index: 100;
     width: 145px;
     height: 170px;
-    background: #FFF;
+    background: rgba(255, 255, 255, .95);
     border-radius: 50% 50% 50% 50%;
     -webkit-transition: .5s ease-in-out;
     transition: .5s ease-in-out;
     box-shadow: 0 0 0 0 #FFF, 0 0 0 0 #FFF;
     cursor: pointer;
+    border-style: inset;
+    border-color: #FFC95F;
   }
   
   label .hamburger {
@@ -235,9 +238,11 @@ nav > ol > a:not(.selected):hover::after {
   
   label input:checked + .menu {
     box-shadow: 0 0 0 100vh #FFF, 0 0 0 100vh #FFF;
+    background: rgba(255, 255, 255, 1);
     border-radius: 0;
     width: 200px;
     height: 100vh;
+    border-style: none;
   }
   
   label input:checked + .menu .hamburger {
@@ -267,11 +272,13 @@ nav > ol > a:not(.selected):hover::after {
   
   label ul {
     position: absolute;
-    top: 50%; 
+    top: 40%; 
     left: 50%;
     width: 80%;
     height: +50%;
     list-style-type: none;
+    text-align: center;
+    padding-inline-start: 0;
     -webkit-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
     opacity: 0;
@@ -294,6 +301,7 @@ nav > ol > a:not(.selected):hover::after {
     border-color: #FFC95F;
     width: 35%;
     font-size: 18px;
+    margin-bottom: 25px;
   }
 
   label > ul > li > icon-icon {
@@ -344,6 +352,8 @@ nav > ol > a:not(.selected):hover::after {
 	 margin: 30px auto;
 	 max-width: 960px;
 	 text-align: center;
+   overflow-y: visible;
+   margin: 50px 0 125px 0;
 }
  div.card {
 	 background: #ffffff;
