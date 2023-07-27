@@ -95,8 +95,8 @@ nav > ol  {
   cursor: pointer;
   border-radius: var(--nav-padding) 0 0 var(--nav-padding);
   position: relative;
-  user-select: none;
   -webkit-user-select: none;
+  user-select: none;
   text-decoration: none;
 }
 .button-filter {
@@ -349,11 +349,12 @@ nav > ol > a:not(.selected):hover::after {
 	 transition: all 0.025s 0s ease-out;
 }
  div.pcards {
-	 margin: 30px auto;
-	 max-width: 960px;
-	 text-align: center;
-   overflow-y: visible;
-   margin: 50px 0 125px 0;
+  max-width: 960px;
+  overflow-y: visible;
+  margin: 50px auto 125px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
  div.card {
 	 background: #ffffff;
