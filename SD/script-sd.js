@@ -1,5 +1,80 @@
+// Pcards generation -------------------------------------------------
 
-// Positive cards system
+// Select pcards container  
+const pcardsEl = document.querySelector('.pcards');
+
+// Load pcards.json
+fetch('pcards.json')
+  .then(response => response.json())
+  .then(data => {
+
+    // Loop through JSON data  
+    data.forEach(card => {
+    
+      // Create card element
+      const cardEl = document.createElement('div');
+      cardEl.classList.add('card');
+
+      // Image holder
+      const imageHolderEl = document.createElement('div');
+      imageHolderEl.classList.add('card__image-holder');
+      
+      const imageEl = document.createElement('img');
+      imageEl.classList.add('card__image');
+      imageEl.src = card.image;
+      imageEl.alt = card.title;
+
+      imageHolderEl.appendChild(imageEl);
+
+      // Card title
+      const titleEl = document.createElement('div');
+      titleEl.classList.add('card-title');
+
+      titleEl.innerHTML = `
+        <h2>${card.title}  
+          <small>${card.smallTitle}</small>
+        </h2>
+      `;
+
+      // Flap 1
+      const flap1El = document.createElement('div');
+      flap1El.classList.add('card-flap', 'flap1');
+
+      const descEl = document.createElement('div');
+      descEl.classList.add('card-description');
+      descEl.textContent = card.description;
+
+      // Flap 2
+      const flap2El = document.createElement('div');
+      flap2El.classList.add('card-flap', 'flap2');
+
+      const actionsEl = document.createElement('div');
+      actionsEl.classList.add('card-actions');
+
+      const copyBtn = document.createElement('a');
+      copyBtn.classList.add('btn');  
+      copyBtn.textContent = 'Copy';
+      copyBtn.href = '#';
+
+      actionsEl.appendChild(copyBtn);
+
+      flap2El.appendChild(actionsEl); 
+
+      // Append elements
+      flap1El.appendChild(flap2El);  
+      cardEl.appendChild(imageHolderEl);
+      cardEl.appendChild(titleEl);
+      cardEl.appendChild(flap1El);
+
+      // Append card to pcards
+      pcardsEl.appendChild(cardEl);
+
+    });
+
+  });
+
+// Positive cards system -------------------------------------------------
+
 $(document).ready(function(){
 var zindex = 10;
 
@@ -40,8 +115,7 @@ $("div.card").click(function(e){
 
 
 
-
-
+// Nav Bar -------------------------------------------------
 
 let selectedItem;
   let selectedFilter;
@@ -97,11 +171,6 @@ let selectedItem;
 
   init();
 
-
-
-
-
-
 	// Search button
 	const searchButton = document.getElementById("searchButton");
 	const searchInput = searchButton.querySelector("input.search");
@@ -110,3 +179,35 @@ let selectedItem;
 	event.preventDefault();
 	searchInput.focus();
 	});
+
+
+
+
+// Filter buttons system ------------------------------------------------
+
+// Get filter buttons
+const filterBtns = document.querySelectorAll('.button-filter');
+
+// Get card containers
+const pcards = document.querySelector('.pcards');
+const ncards = document.querySelector('.ncards');
+
+// Handle filter button clicks
+filterBtns.forEach(btn => {
+  btn.addEventListener('click', e => {
+    const filter = e.target.dataset.filter;
+    
+    if(filter === 'all') {
+      pcards.style.display = 'grid';
+      ncards.style.display = 'grid'; 
+    }
+    else if(filter === 'positive') {
+      pcards.style.display = 'grid';
+      ncards.style.display = 'none';
+    }
+    else if(filter === 'negative') {
+      pcards.style.display = 'none';
+      ncards.style.display = 'grid';
+    }
+  }); 
+});

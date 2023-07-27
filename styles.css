@@ -151,7 +151,7 @@ html, body {
   }
   .container .one-half.left {
     left: 0;
-    background: url("assets/home/sd.png") center center no-repeat;
+    background: url("assets/home/sd.webp") center center no-repeat;
     background-size: cover;
     filter: brightness(100%)
   }
@@ -164,7 +164,7 @@ html, body {
   }
   .container .one-half.right {
     right: 0;
-    background: url("assets/home/gpt.png") center center no-repeat;
+    background: url("assets/home/gpt.webp") center center no-repeat;
     background-size: cover;
     filter: brightness(100%)
   }
