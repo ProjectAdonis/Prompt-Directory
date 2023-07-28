@@ -319,6 +319,10 @@ nav > ol > a:not(.selected):hover::after {
     font-size: 25px;
     text-decoration: none;
   }
+  
+  label a.selected {
+    color: #a16e07;
+  }
 
 }
 

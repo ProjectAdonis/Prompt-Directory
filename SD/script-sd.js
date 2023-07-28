@@ -55,6 +55,19 @@ searchBtn.addEventListener('click', e => {
   searchInput.focus(); 
 });
 
+// Selected status of filter buttons -- mobile nav bar
+const buttonFilters = document.querySelectorAll('.mbutton-filter');
+
+// Add event listener to each button-filter
+buttonFilters.forEach(button => {
+  button.addEventListener('click', () => {
+    // Remove the 'selected' class from all button-filters
+    buttonFilters.forEach(btn => btn.classList.remove('selected'));
+    // Add the 'selected' class to the clicked button-filter
+    button.classList.add('selected');
+  });
+});
+
 
 // -------------------------------------------------
 // Positive cards system
@@ -172,6 +185,8 @@ function copyToClipboard(text) {
 // Filter system
 // -------------------------------------------------
 
+let currentFilter = 'all'; // Variable to keep track of the currently selected filter
+
 // Desktop Nav
 
 const filterBtns = document.querySelectorAll('.button-filter');
@@ -183,21 +198,28 @@ filterBtns.forEach(btn => {
 });
 
 function filterCards() {
-  if (this.dataset.filter === 'all') {
+  currentFilter = this.dataset.filter; // Update the currentFilter variable
+
+  if (currentFilter === 'all') {
     pcards.style.display = 'flex';
     ncards.style.display = 'grid';
   }
 
-  if (this.dataset.filter === 'positive') {
+  if (currentFilter === 'positive') {
     pcards.style.display = 'flex';
     ncards.style.display = 'none';
   }
 
-  if (this.dataset.filter === 'negative') {
-    pcards.style.display = 'none'; 
+  if (currentFilter === 'negative') {
+    pcards.style.display = 'none';
     ncards.style.display = 'grid';
   }
+
+  // After applying the filter, also perform a search if there's a search query
+  const searchQuery = searchInputDesktopNav.value;
+  filterResults(searchQuery);
 }
+
 
 // Mobile Nav 
 
@@ -208,59 +230,85 @@ mobileFilterBtns.forEach(btn => {
 });
 
 function mfilterCards() {
-  if (this.dataset.filter === 'all') {
+  currentFilter = this.dataset.filter; // Update the currentFilter variable
+
+  if (currentFilter === 'all') {
     pcards.style.display = 'flex';
     ncards.style.display = 'grid';
   }
 
-  if (this.dataset.filter === 'positive') {
+  if (currentFilter === 'positive') {
     pcards.style.display = 'flex';
     ncards.style.display = 'none';
   }
 
-  if (this.dataset.filter === 'negative') {
-    pcards.style.display = 'none'; 
+  if (currentFilter === 'negative') {
+    pcards.style.display = 'none';
     ncards.style.display = 'grid';
   }
+
+  // After applying the filter, also perform a search if there's a search query
+  const searchQuery = searchInputMobileNav.value;
+  filterResults(searchQuery);
 }
 
 // -------------------------------------------------
 // Search system 
 // -------------------------------------------------
 
+// Function to filter the cards based on the search query
+function filterResults(searchQuery = "") {
 
-// Get search inputs
-function init() {
-  document.addEventListener('DOMContentLoaded', () => {
-    const searchInputDesktop = document.querySelector('.desktop .search'); 
-    const searchInputMobile = document.querySelector('.mobile .search');
+  const query = searchQuery.toLowerCase().trim();
 
-    // Add input listeners  
-    searchInputDesktop.addEventListener('input', filterCards);
-    searchInputMobile.addEventListener('input', filterCards);
+  let atLeastOneCardMatches = false;
 
-    function filterCards(e) {
+  cards.forEach(card => {
+    const title = card.querySelector(".card-title h2")?.innerText || "";
+    const smallTitle = card.querySelector(".card-title small")?.innerText || "";
+    const description = card.querySelector(".card-description")?.innerText || "";
+    const nTitle = card.querySelector(".ntitle")?.innerText || "";
+    const nCopy = card.querySelector(".ncopy")?.innerText || "";
 
-      const query = e.target.value.toLowerCase();
+    const cardMatches =
+      title.toLowerCase().includes(query) ||
+      smallTitle.toLowerCase().includes(query) ||
+      description.toLowerCase().includes(query) ||
+      nTitle.toLowerCase().includes(query) ||
+      nCopy.toLowerCase().includes(query);
+      (currentFilter === 'all' || (currentFilter === 'positive' && cardMatches) || (currentFilter === 'negative' && !cardMatches)); // Handle the negative filter here
 
-      // Loop through all cards
-      const allCards = document.querySelectorAll('.card, .ncard');
-      allCards.forEach(card => {
+      card.style.display = cardMatches ? "grid" : "none";
 
-        // Get card text
-        let cardText = card.textContent.toLowerCase();
-
-        // Hide non-matching cards
-        if (cardText.indexOf(query) === -1) {
-          card.style.display = 'none';
-        } else {
-          card.style.display = 'block'; 
-        }
-
-      });
+    if (cardMatches) {
+      atLeastOneCardMatches = true;
     }
   });
 
 }
 
-init();
+  // Get all the cards and the pcards container
+  const cardsContainer = document.querySelector(".pcards");
+  const cards = document.querySelectorAll(".card, .ncard");
+
+  // Attach event listener to the search input in the desktop nav bar
+  const searchInputDesktopNav = document.getElementById("searchInput");
+  searchInputDesktopNav.addEventListener("input", (event) => {
+    const searchQuery = event.target.value;
+    filterResults(searchQuery);
+  });
+
+  // Attach event listener to the search input in the mobile nav bar
+  const searchInputMobileNav = document.querySelector('label input[type="text"]');
+  searchInputMobileNav.addEventListener("input", (event) => {
+    const searchQuery = event.target.value;
+    filterResults(searchQuery);
+  });
+
+  // Close the menu when Enter key is pressed in the search input
+  const menuCheckbox = document.querySelector('input[aria-label="checkbox-menu"]');
+  searchInputMobileNav.addEventListener("keypress", (event) => {
+    if (event.key === "Enter") {
+      menuCheckbox.checked = false; // Uncheck the checkbox to close the menu
+    }
+});
