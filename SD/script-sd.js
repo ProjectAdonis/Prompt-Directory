@@ -112,7 +112,11 @@ $("div.card").click(function(e){
 });
 });
 
+// -------------------------------------------------
+// Negative cards system
+// -------------------------------------------------
 
+ ///////////////////////////////////////////////////
 
 // -------------------------------------------------
 // Copy buttons pcards
@@ -256,14 +260,20 @@ function mfilterCards() {
 // Search system 
 // -------------------------------------------------
 
+// Function to update the grid layout based on the number of visible cards
+function updateGridLayout() {
+  const visibleCards = document.querySelectorAll(".card[style='display: grid;'], .ncard[style='display: grid;']");
+  const numVisibleCards = visibleCards.length;
+  const gridColumns = numVisibleCards >= 3 ? 4 : 2; // Use 4 columns if 3 or more cards are visible, otherwise use 2 columns
+  cardsContainer.style.setProperty('grid-template-columns', `repeat(${gridColumns}, minmax(0, 1fr))`);
+}
+
 // Function to filter the cards based on the search query
 function filterResults(searchQuery = "") {
-
   const query = searchQuery.toLowerCase().trim();
-
   let atLeastOneCardMatches = false;
 
-  cards.forEach(card => {
+  cards.forEach((card) => {
     const title = card.querySelector(".card-title h2")?.innerText || "";
     const smallTitle = card.querySelector(".card-title small")?.innerText || "";
     const description = card.querySelector(".card-description")?.innerText || "";
@@ -276,39 +286,46 @@ function filterResults(searchQuery = "") {
       description.toLowerCase().includes(query) ||
       nTitle.toLowerCase().includes(query) ||
       nCopy.toLowerCase().includes(query);
-      (currentFilter === 'all' || (currentFilter === 'positive' && cardMatches) || (currentFilter === 'negative' && !cardMatches)); // Handle the negative filter here
+    (currentFilter === "all" ||
+      (currentFilter === "positive" && cardMatches) ||
+      (currentFilter === "negative" && !cardMatches)); // Handle the negative filter here
 
-      card.style.display = cardMatches ? "grid" : "none";
+    card.style.display = cardMatches ? "grid" : "none";
 
     if (cardMatches) {
       atLeastOneCardMatches = true;
     }
   });
 
+  // Update the grid layout after filtering
+  updateGridLayout();
 }
 
-  // Get all the cards and the pcards container
-  const cardsContainer = document.querySelector(".pcards");
-  const cards = document.querySelectorAll(".card, .ncard");
+// Get all the cards and the pcards container
+const cardsContainer = document.querySelector(".pcards");
+const cards = document.querySelectorAll(".card, .ncard");
 
-  // Attach event listener to the search input in the desktop nav bar
-  const searchInputDesktopNav = document.getElementById("searchInput");
-  searchInputDesktopNav.addEventListener("input", (event) => {
-    const searchQuery = event.target.value;
-    filterResults(searchQuery);
-  });
-
-  // Attach event listener to the search input in the mobile nav bar
-  const searchInputMobileNav = document.querySelector('label input[type="text"]');
-  searchInputMobileNav.addEventListener("input", (event) => {
-    const searchQuery = event.target.value;
-    filterResults(searchQuery);
-  });
-
-  // Close the menu when Enter key is pressed in the search input
-  const menuCheckbox = document.querySelector('input[aria-label="checkbox-menu"]');
-  searchInputMobileNav.addEventListener("keypress", (event) => {
-    if (event.key === "Enter") {
-      menuCheckbox.checked = false; // Uncheck the checkbox to close the menu
-    }
+// Attach event listener to the search input in the desktop nav bar
+const searchInputDesktopNav = document.getElementById("searchInput");
+searchInputDesktopNav.addEventListener("input", (event) => {
+  const searchQuery = event.target.value;
+  filterResults(searchQuery);
 });
+
+// Attach event listener to the search input in the mobile nav bar
+const searchInputMobileNav = document.querySelector('label input[type="text"]');
+searchInputMobileNav.addEventListener("input", (event) => {
+  const searchQuery = event.target.value;
+  filterResults(searchQuery);
+});
+
+// Close the menu when Enter key is pressed in the search input
+const menuCheckbox = document.querySelector('input[aria-label="checkbox-menu"]');
+searchInputMobileNav.addEventListener("keypress", (event) => {
+  if (event.key === "Enter") {
+    menuCheckbox.checked = false; // Uncheck the checkbox to close the menu
+  }
+});
+
+// Call the updateGridLayout function on page load to set the initial layout
+window.addEventListener("load", updateGridLayout);

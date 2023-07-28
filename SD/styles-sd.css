@@ -507,6 +507,17 @@ nav > ol > a:not(.selected):hover::after {
 
 /*-----------------------NEGATIVE PROMPTS CARDS----------------------------*/
 
+/* Keep the existing styles for .ncards and other classes */
+
+/* Use Flexbox to center items within .ncards when there are less than four */
+.ncards.centered {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* Media queries for different screen sizes */
+/* Define the default responsive grid with 4 columns */
 .ncards {
   display: grid;
   grid-gap: 1rem;
@@ -516,17 +527,20 @@ nav > ol > a:not(.selected):hover::after {
   margin-top: 0;
   font-family: var(--font-sans);
   margin-top: 20px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
 }
-@media (min-width: 600px) {
+
+@media (max-width: 1200px) {
   .ncards {
     grid-template-columns: repeat(2, 1fr);
   }
 }
-@media (min-width: 1200px) {
+@media (max-width: 600px) {
   .ncards {
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(1, 1fr);
   }
 }
+
 .ncard {
   position: relative;
   display: flex;
