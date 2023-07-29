@@ -113,12 +113,6 @@ $("div.card").click(function(e){
 });
 
 // -------------------------------------------------
-// Negative cards system
-// -------------------------------------------------
-
- ///////////////////////////////////////////////////
-
-// -------------------------------------------------
 // Copy buttons pcards
 // -------------------------------------------------
 
@@ -196,6 +190,7 @@ let currentFilter = 'all'; // Variable to keep track of the currently selected f
 const filterBtns = document.querySelectorAll('.button-filter');
 const pcards = document.querySelector('.pcards'); 
 const ncards = document.querySelector('.ncards');
+const ncontent = document.querySelector('.ncontent');
 
 filterBtns.forEach(btn => {
   btn.addEventListener('click', filterCards);
