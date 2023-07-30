@@ -22,6 +22,11 @@ filterItems.forEach(item => {
 });
 
 function selectNavItem() {
+	// Unselect search button if home clicked
+	if (this.classList.contains('home')) {
+		searchBtn.classList.remove('selected');
+	  }
+	
 	if (this === selectedItem) return;
 
 	this.classList.add('selected');
@@ -176,7 +181,7 @@ function copyToClipboard(text) {
 	textarea.value = text;
 	document.body.appendChild(textarea);
 	textarea.select();
-	document.execCommand("copy");
+	document.exec1Command("copy");
 	document.body.removeChild(textarea);
 }
 
@@ -193,7 +198,6 @@ let currentFilter = 'all'; // Variable to keep track of the currently selected f
 const filterBtns = document.querySelectorAll('.button-filter');
 const pcards = document.querySelector('.pcards');
 const ncards = document.querySelector('.ncards');
-const ncontent = document.querySelector('.ncontent');
 
 filterBtns.forEach(btn => {
 	btn.addEventListener('click', filterCards);
@@ -204,7 +208,7 @@ function filterCards() {
 
 	if (currentFilter === 'all') {
 		pcards.style.display = 'flex';
-		ncards.style.display = 'grid';
+		ncards.style.display = 'flex';
 	}
 
 	if (currentFilter === 'positive') {
@@ -236,7 +240,7 @@ function mfilterCards() {
 
 	if (currentFilter === 'all') {
 		pcards.style.display = 'flex';
-		ncards.style.display = 'grid';
+		ncards.style.display = 'flex';
 	}
 
 	if (currentFilter === 'positive') {
@@ -258,12 +262,30 @@ function mfilterCards() {
 // Search system 
 // -------------------------------------------------
 
-// Function to update the grid layout based on the number of visible cards
-function updateGridLayout() {
-	const visibleCards = document.querySelectorAll(".card[style='display: grid;'], .ncard[style='display: grid;']");
+// Function to update the grid layout of .ncards based on the number of visible cards
+function updateNCardsGridLayout() {
+	const visibleCards = document.querySelectorAll(".ncard[style='display: grid;']");
 	const numVisibleCards = visibleCards.length;
-	const gridColumns = numVisibleCards >= 3 ? 4 : 2; // Use 4 columns if 3 or more cards are visible, otherwise use 2 columns
-	cardsContainer.style.setProperty('grid-template-columns', `repeat(${gridColumns}, minmax(0, 1fr))`);
+
+	const ncardsContainer = document.querySelector(".ncards");
+
+	// Update the grid layout
+	function updateLayout(gridColumns) {
+		ncardsContainer.style.setProperty('grid-template-columns', `repeat(${gridColumns}, minmax(0, 1fr))`);
+
+		// Check if .ncards need to be centered
+		if (gridColumns < 4) {
+			ncardsContainer.classList.add("centered");
+		} else {
+			ncardsContainer.classList.remove("centered");
+		}
+	}
+
+	// Check if the current filter is "ALL" or "negative"
+	if (currentFilter === 'all') {
+		// Use as many columns as visible cards
+		updateLayout(numVisibleCards);
+	}
 }
 
 // Function to filter the cards based on the search query
@@ -276,6 +298,7 @@ function filterResults(searchQuery = "") {
 		const smallTitle = card.querySelector(".card-title small")?.innerText || "";
 		const description = card.querySelector(".card-description")?.innerText || "";
 		const nTitle = card.querySelector(".ntitle")?.innerText || "";
+		const nDescription = card.querySelector(".description")?.innerText || "";
 		const nCopy = card.querySelector(".ncopy")?.innerText || "";
 
 		const cardMatches =
@@ -283,12 +306,13 @@ function filterResults(searchQuery = "") {
 			smallTitle.toLowerCase().includes(query) ||
 			description.toLowerCase().includes(query) ||
 			nTitle.toLowerCase().includes(query) ||
+			nDescription.toLowerCase().includes(query) ||
 			nCopy.toLowerCase().includes(query);
 		(currentFilter === "all" ||
 			(currentFilter === "positive" && cardMatches) ||
 			(currentFilter === "negative" && !cardMatches));
 
-		card.style.display = cardMatches ? "grid" : "none";
+		card.style.display = cardMatches ? "inline-block" : "none";
 
 		if (cardMatches) {
 			atLeastOneCardMatches = true;
@@ -296,15 +320,13 @@ function filterResults(searchQuery = "") {
 	});
 
 	// Update the grid layout after filtering
-	updateGridLayout();
+	updateNCardsGridLayout();
 }
 
 // Get all the cards and the pcards container
 const cardsContainer = document.querySelector(".pcards");
 const cards = document.querySelectorAll(".card, .ncard");
 
-
-// bug here ?????? ////////////////////////////////////////////////////////////////////////////////////////////
 // Attach event listener to the search input in the desktop nav bar
 const searchInputDesktopNav = document.getElementById("searchInput");
 searchInputDesktopNav.addEventListener("input", (event) => {
@@ -327,5 +349,5 @@ searchInputMobileNav.addEventListener("keypress", (event) => {
 	}
 });
 
-// Call the updateGridLayout function on page load to set the initial layout
-window.addEventListener("load", updateGridLayout);
+// Call the updateNCardsGridLayout function on page load to set the initial layout
+window.addEventListener("load", updateNCardsGridLayout);

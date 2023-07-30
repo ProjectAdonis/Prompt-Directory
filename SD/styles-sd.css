@@ -76,7 +76,7 @@
      list-style-type: none;
      border-radius: 30px;
 }
- .title, .filters {
+ .title, .filters, .usage {
      padding: 20px 0 20px 20px;
      display: flex;
      color: white;
@@ -87,6 +87,11 @@
  .filters {
      padding: 20px 0 5px 20px;
      font-size: 25px;
+}
+.usage {
+    padding-right: 30px;
+    font-size: 17.5px;
+    text-align: justify;
 }
  .button, .button-filter {
      padding: 20px 0 20px 20px;
@@ -507,7 +512,7 @@
      align-items: flex-end;
      overflow: hidden;
      padding: 1rem;
-     width: 100%;
+     width: 234px;
      top: 0;
      text-align: center;
      color: whitesmoke;
@@ -631,3 +636,4 @@
          transition-duration: 0s;
     }
 }
+ 
