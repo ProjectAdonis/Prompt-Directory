@@ -69,16 +69,16 @@ searchBtn.addEventListener('click', e => {
 
 
 // Home button delay
-document.getElementById("delayButton").addEventListener("click", function (event) {
+document.getElementById("delayButton").addEventListener("click", function(event) {
 	event.preventDefault();
 	this.disabled = true;
 	setTimeout(() => {
-	  window.open(this.href, "_blank");
-	  this.disabled = false;
+		window.open(this.href, "_blank");
+		this.disabled = false;
 	}, 0);
-  });
-  
-  // MOBILE NAV BAR -----------------
+});
+
+// MOBILE NAV BAR -----------------
 
 // Selected status of filter buttons
 const buttonFilters = document.querySelectorAll('.mbutton-filter');
@@ -97,7 +97,7 @@ buttonFilters.forEach(button => {
 const allmFilter = document.querySelector('.mbutton-filter[data-filter="all"]');
 allmFilter.classList.add('selected');
 let mselectedFilter = allmFilter;
-  
+
 // -------------------------------------------------
 // Positive cards system
 // -------------------------------------------------
@@ -153,19 +153,19 @@ function copyDescription(button) {
 	var cardElement = button.closest('.card');
 	var descriptionToCopy = cardElement.querySelector('.card-description').innerText;
 	button.innerText = 'Copied!';
-  
+
 	// Use the Clipboard API to copy the text
-	navigator.clipboard.writeText(descriptionToCopy).then(function () {
-	  // Set a timeout to revert the button text to "Copy" after a brief delay (e.g., 2 seconds)
-	  setTimeout(function () {
+	navigator.clipboard.writeText(descriptionToCopy).then(function() {
+		// Set a timeout to revert the button text to "Copy" after a brief delay (e.g., 2 seconds)
+		setTimeout(function() {
+			button.innerText = 'Copy';
+		}, 2000);
+	}).catch(function(err) {
+		console.error('Failed to copy: ', err);
 		button.innerText = 'Copy';
-	  }, 2000);
-	}).catch(function (err) {
-	  console.error('Failed to copy: ', err);
-	  button.innerText = 'Copy';
 	});
-  }
-  
+}
+
 
 // -------------------------------------------------
 // Copy buttons ncards
@@ -175,18 +175,18 @@ function copyText(button) {
 	var contentElement = button.parentElement;
 	var textToCopy = contentElement.querySelector('.ncopy').innerText;
 	button.innerText = 'Copied!';
-  
+
 	// Use the Clipboard API to copy the text
-	navigator.clipboard.writeText(textToCopy).then(function () {
-	  // Set a timeout to revert the button text to "Copy" after a brief delay (e.g., 2 seconds)
-	  setTimeout(function () {
+	navigator.clipboard.writeText(textToCopy).then(function() {
+		// Set a timeout to revert the button text to "Copy" after a brief delay (e.g., 2 seconds)
+		setTimeout(function() {
+			button.innerText = 'Copy';
+		}, 2000);
+	}).catch(function(err) {
+		console.error('Failed to copy: ', err);
 		button.innerText = 'Copy';
-	  }, 2000);
-	}).catch(function (err) {
-	  console.error('Failed to copy: ', err);
-	  button.innerText = 'Copy';
 	});
-  }
+}
 
 
 

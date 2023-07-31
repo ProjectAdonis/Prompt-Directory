@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
   <head>
     <title>SD Prompts</title>
     <meta charset="utf-8">
@@ -9,12 +8,13 @@
     <meta name="description" content="Stable Diffusion Prompt Directory.">
   </head>
 
+
   <body>
 
     <nav class="nav-desktop">
       <ol>
         <li class="title">Stable Diffusion Prompts</li>
-        <hr/>
+        <hr />
         <a class="button" id="delayButton" href="https://projectadonis.github.io/Prompt-Directory" target="_blank">
           <li class="selected">
             <i class="fa fa-home" aria-hidden="true"></i>
@@ -25,10 +25,12 @@
         <a class="button" id="searchButton">
           <li>
             <i class="fa fa-search" aria-hidden="true"></i>
-            <span><input class="search" id="searchInput" type="text" placeholder="Search.."></span>
+            <span>
+              <input class="search" id="searchInput" type="text" placeholder="Search..">
+            </span>
           </li>
         </a>
-        <hr/>
+        <hr />
         <li class="filters">Filters :</li>
         <a class="button-filter" data-filter="all">
           <li>
@@ -48,403 +50,547 @@
             <span>Negative</span>
           </li>
         </a>
-        <hr/>
+        <hr />
         <li class="usage">Copy the prompt from the category you want to start with and replace the part in {brackets} with your personal prompt command.</li>
       </ol>
     </nav>
 
     <label>
       <input type="checkbox" aria-label="checkbox-menu">
-      <span class="menu"> <span class="hamburger"></span> </span>
+      <span class="menu">
+        <span class="hamburger"></span>
+      </span>
       <ul>
         <li>
           <h1>Stable Diffusion Prompts</h1>
         </li>
-        <hr/>
-        <li><a href="https://projectadonis.github.io/Prompt-Directory" target="_blank">
-          <i class="fa fa-home" aria-hidden="true"></i>
-          <span>Home</span>
-          <i class="fa fa-external-link" aria-hidden="true"></i>
+        <hr />
+        <li>
+          <a href="https://projectadonis.github.io/Prompt-Directory" target="_blank">
+            <i class="fa fa-home" aria-hidden="true"></i>
+            <span>Home</span>
+            <i class="fa fa-external-link" aria-hidden="true"></i>
         </li>
         </a>
         <li>
           <a id="searchButton">
-          <i class="fa fa-search" aria-hidden="true"></i>
-          <span>
-          <input class="search" id="searchInput" type="text" placeholder="Search.."> 
-          </span>
-          </a> 
+            <i class="fa fa-search" aria-hidden="true"></i>
+            <span>
+              <input class="search" id="searchInput" type="text" placeholder="Search..">
+            </span>
+          </a>
         </li>
-        <hr/>
+        <hr />
         <li>
           <h2>Filters :</h2>
         </li>
-        <li><a class="mbutton-filter" data-filter="all">
-          <i class="fa fa-circle-o" aria-hidden="true" ></i>
-          <span>ALL (default)</span>
-          </a>
-        </li>
-        <li><a class="mbutton-filter" data-filter="positive">
-          <i class="fa fa-check-circle-o" aria-hidden="true"></i>
-          <span>Positive</span>
-          </a>
-        </li>
-        <li><a class="mbutton-filter" data-filter="negative">
-          <i class="fa fa-ban" aria-hidden="true"></i>
-          <span>Negative</span>
-          </a>
-        </li>
-        <hr/>
         <li>
-          <h4>Copy the prompt from the category you want to start with and replace the part in <i>{brackets}</i> with your personal prompt command.</h4>
+          <a class="mbutton-filter" data-filter="all">
+            <i class="fa fa-circle-o" aria-hidden="true"></i>
+            <span>ALL (default)</span>
+          </a>
+        </li>
+        <li>
+          <a class="mbutton-filter" data-filter="positive">
+            <i class="fa fa-check-circle-o" aria-hidden="true"></i>
+            <span>Positive</span>
+          </a>
+        </li>
+        <li>
+          <a class="mbutton-filter" data-filter="negative">
+            <i class="fa fa-ban" aria-hidden="true"></i>
+            <span>Negative</span>
+          </a>
+        </li>
+        <hr />
+        <li>
+          <h4>Copy the prompt from the category you want to start with and replace the part in <i>{brackets}</i> with your personal prompt command. </h4>
         </li>
       </ul>
     </label>
 
     <main>
-
       <div class="pcards">
-
         <div class="card">
-          <div class="card__image-holder"><img class="card__image" src="https://publicprompts.art/wp-content/uploads/2022/11/Cute-Stuffed-Animals-collage-1024x1024.png"/></div>
+          <div class="card__image-holder">
+            <img class="card__image" src="https://publicprompts.art/wp-content/uploads/2022/11/Cute-Stuffed-Animals-collage-1024x1024.png" />
+          </div>
           <div class="card-title">
-            <a class="toggle-info btn"><span class="left"></span><span class="right"></span></a> 
-            <h2>Cute Stuffed Animals<small>Suggested CFG scale: 13 <br>Sampler DDIM, steps: 35</small></h2>
+            <a class="toggle-info btn">
+              <span class="left"></span>
+              <span class="right"></span>
+            </a>
+            <h2>Cute Stuffed Animals <small>Suggested CFG scale: 13 <br>Sampler DDIM, steps: 35 </small>
+            </h2>
           </div>
           <div class="card-flap flap1">
-            <hr/>
-            <div class="card-description">Cute kawaii Squishy <i>{animal}</i> plush toy, realistic texture, visible stitch line, soft smooth lighting, vibrant studio lighting, modular constructivism, physically based rendering, square image</div>
-            <hr/>
+            <hr />
+            <div class="card-description">Cute kawaii Squishy <i>{animal}</i> plush toy, realistic texture, visible stitch line, soft smooth lighting, vibrant studio lighting, modular constructivism, physically based rendering, square image </div>
+            <hr />
             <div class="card-flap flap2">
-              <div class="card-actions"><a class="btn" onclick="copyDescription(this)">Copy</a></div>
+              <div class="card-actions">
+                <a class="btn" onclick="copyDescription(this)">Copy</a>
+              </div>
             </div>
           </div>
         </div>
         <div class="card">
-          <div class="card__image-holder"><img class="card__image" src="https://publicprompts.art/wp-content/uploads/2022/11/Needle-Felted-collage-1024x1024.jpg"/></div>
+          <div class="card__image-holder">
+            <img class="card__image" src="https://publicprompts.art/wp-content/uploads/2022/11/Needle-Felted-collage-1024x1024.jpg" />
+          </div>
           <div class="card-title">
-            <a class="toggle-info btn"><span class="left"></span><span class="right"></span></a> 
-            <h2>Needle Felted Objects<small>Suggested CFG scale: 13 <br>Sampler DDIM, steps: 25</small></h2>
+            <a class="toggle-info btn">
+              <span class="left"></span>
+              <span class="right"></span>
+            </a>
+            <h2>Needle Felted Objects <small>Suggested CFG scale: 13 <br>Sampler DDIM, steps: 25 </small>
+            </h2>
           </div>
           <div class="card-flap flap1">
-            <hr/>
-            <div class="card-description">Tiny cute 3D felt fiber <i>{object}</i>, made from Felt fibers, a 3D render, trending on cgsociety, rendered in maya, rendered in cinema4d, made of yarn, square image</div>
-            <hr/>
+            <hr />
+            <div class="card-description">Tiny cute 3D felt fiber <i>{object}</i>, made from Felt fibers, a 3D render, trending on cgsociety, rendered in maya, rendered in cinema4d, made of yarn, square image </div>
+            <hr />
             <div class="card-flap flap2">
-              <div class="card-actions"><a class="btn" onclick="copyDescription(this)">Copy</a></div>
+              <div class="card-actions">
+                <a class="btn" onclick="copyDescription(this)">Copy</a>
+              </div>
             </div>
           </div>
         </div>
         <div class="card">
-          <div class="card__image-holder"><img class="card__image" src="https://publicprompts.art/wp-content/uploads/2022/10/Comic-Art-Collage-1024x857.png"/></div>
+          <div class="card__image-holder">
+            <img class="card__image" src="https://publicprompts.art/wp-content/uploads/2022/10/Comic-Art-Collage-1024x857.png" />
+          </div>
           <div class="card-title">
-            <a class="toggle-info btn"><span class="left"></span><span class="right"></span></a> 
-            <h2>Silhouette wallpapers<small>Suggested CFG scale: 13 <br>Sampler DDIM, steps: 25</small></h2>
+            <a class="toggle-info btn">
+              <span class="left"></span>
+              <span class="right"></span>
+            </a>
+            <h2>Silhouette wallpapers <small>Suggested CFG scale: 13 <br>Sampler DDIM, steps: 25 </small>
+            </h2>
           </div>
           <div class="card-flap flap1">
-            <hr/>
-            <div class="card-description">Multiple layers of silhouette mountains, with silhouette of <i>{something}</i>, sharp edges, at sunset, with heavy fog in air, vector style, horizon silhouette Landscape wallpaper by Alena Aenami, firewatch game style, vector style background</div>
-            <hr/>
+            <hr />
+            <div class="card-description">Multiple layers of silhouette mountains, with silhouette of <i>{something}</i>, sharp edges, at sunset, with heavy fog in air, vector style, horizon silhouette Landscape wallpaper by Alena Aenami, firewatch game style, vector style background </div>
+            <hr />
             <div class="card-flap flap2">
-              <div class="card-actions"><a class="btn" onclick="copyDescription(this)">Copy</a></div>
+              <div class="card-actions">
+                <a class="btn" onclick="copyDescription(this)">Copy</a>
+              </div>
             </div>
           </div>
         </div>
         <div class="card">
-          <div class="card__image-holder"><img class="card__image" src="https://publicprompts.art/wp-content/uploads/2022/10/3D-Character-Collage-1024x1024.png"/></div>
+          <div class="card__image-holder">
+            <img class="card__image" src="https://publicprompts.art/wp-content/uploads/2022/10/3D-Character-Collage-1024x1024.png" />
+          </div>
           <div class="card-title">
-            <a class="toggle-info btn"><span class="left"></span><span class="right"></span></a> 
-            <h2>3D Character<small>Suggested CFG scale: 13 <br>Sampler DDIM, steps: 25</small></h2>
+            <a class="toggle-info btn">
+              <span class="left"></span>
+              <span class="right"></span>
+            </a>
+            <h2>3D Character <small>Suggested CFG scale: 13 <br>Sampler DDIM, steps: 25 </small>
+            </h2>
           </div>
           <div class="card-flap flap1">
-            <hr/>
+            <hr />
             <div class="card-description">Tiny cute ninja toy, standing character, soft smooth lighting, soft pastel colors, skottie young, 3d blender render, polycount, modular constructivism, pop surrealism, physically based rendering, square image,</div>
-            <hr/>
+            <hr />
             <div class="card-flap flap2">
-              <div class="card-actions"><a class="btn" onclick="copyDescription(this)">Copy</a></div>
+              <div class="card-actions">
+                <a class="btn" onclick="copyDescription(this)">Copy</a>
+              </div>
             </div>
           </div>
         </div>
         <div class="card">
-          <div class="card__image-holder"><img class="card__image" src="https://publicprompts.art/wp-content/uploads/2022/10/Comic-Art-Collage-1-1024x1024.png"/></div>
+          <div class="card__image-holder">
+            <img class="card__image" src="https://publicprompts.art/wp-content/uploads/2022/10/Comic-Art-Collage-1-1024x1024.png" />
+          </div>
           <div class="card-title">
-            <a class="toggle-info btn"><span class="left"></span><span class="right"></span></a> 
-            <h2>Comic Art<small>Suggested CFG scale: 13 <br>Sampler DDIM, steps: 25</small></h2>
+            <a class="toggle-info btn">
+              <span class="left"></span>
+              <span class="right"></span>
+            </a>
+            <h2>Comic Art <small>Suggested CFG scale: 13 <br>Sampler DDIM, steps: 25 </small>
+            </h2>
           </div>
           <div class="card-flap flap1">
-            <hr/>
+            <hr />
             <div class="card-description">Retro comic style artwork, highly detailed James Bond, comic book cover, symmetrical, vibrant</div>
-            <hr/>
+            <hr />
             <div class="card-flap flap2">
-              <div class="card-actions"><a class="btn" onclick="copyDescription(this)">Copy</a></div>
+              <div class="card-actions">
+                <a class="btn" onclick="copyDescription(this)">Copy</a>
+              </div>
             </div>
           </div>
         </div>
         <div class="card">
-          <div class="card__image-holder"><img class="card__image" src="https://publicprompts.art/wp-content/uploads/2022/10/Psychedelic-Pop-Collage-1024x1024.jpg"/></div>
+          <div class="card__image-holder">
+            <img class="card__image" src="https://publicprompts.art/wp-content/uploads/2022/10/Psychedelic-Pop-Collage-1024x1024.jpg" />
+          </div>
           <div class="card-title">
-            <a class="toggle-info btn"><span class="left"></span><span class="right"></span></a> 
-            <h2>Psychedelic Pop art<small>Suggested CFG scale: 13 <br>Sampler DDIM, steps: 25</small></h2>
+            <a class="toggle-info btn">
+              <span class="left"></span>
+              <span class="right"></span>
+            </a>
+            <h2>Psychedelic Pop art <small>Suggested CFG scale: 13 <br>Sampler DDIM, steps: 25 </small>
+            </h2>
           </div>
           <div class="card-flap flap1">
-            <hr/>
+            <hr />
             <div class="card-description">Hypnotic illustration of a Halloween pumpkin, hypnotic psychedelic art by Dan Mumford, pop surrealism, dark glow neon paint, mystical, Behance</div>
-            <hr/>
+            <hr />
             <div class="card-flap flap2">
-              <div class="card-actions"><a class="btn" onclick="copyDescription(this)">Copy</a></div>
+              <div class="card-actions">
+                <a class="btn" onclick="copyDescription(this)">Copy</a>
+              </div>
             </div>
           </div>
         </div>
         <div class="card">
-          <div class="card__image-holder"><img class="card__image" src="https://publicprompts.art/wp-content/uploads/2022/10/Space-holograms-Collage-1024x1024.png"/></div>
+          <div class="card__image-holder">
+            <img class="card__image" src="https://publicprompts.art/wp-content/uploads/2022/10/Space-holograms-Collage-1024x1024.png" />
+          </div>
           <div class="card-title">
-            <a class="toggle-info btn"><span class="left"></span><span class="right"></span></a> 
-            <h2>Space Holograms<small>Suggested CFG scale: 13 <br>Sampler DDIM, steps: 25</small></h2>
+            <a class="toggle-info btn">
+              <span class="left"></span>
+              <span class="right"></span>
+            </a>
+            <h2>Space Holograms <small>Suggested CFG scale: 13 <br>Sampler DDIM, steps: 25 </small>
+            </h2>
           </div>
           <div class="card-flap flap1">
-            <hr/>
+            <hr />
             <div class="card-description">Hologram of a wolf floating in space, a vibrant digital illustration, dribbble, quantum wavetracing, black background, behance hd</div>
-            <hr/>
+            <hr />
             <div class="card-flap flap2">
-              <div class="card-actions"><a class="btn" onclick="copyDescription(this)">Copy</a></div>
+              <div class="card-actions">
+                <a class="btn" onclick="copyDescription(this)">Copy</a>
+              </div>
             </div>
           </div>
         </div>
         <div class="card">
-          <div class="card__image-holder"><img class="card__image" src="https://publicprompts.art/wp-content/uploads/2022/10/Stickers-collage-1024x1024.png"/></div>
+          <div class="card__image-holder">
+            <img class="card__image" src="https://publicprompts.art/wp-content/uploads/2022/10/Stickers-collage-1024x1024.png" />
+          </div>
           <div class="card-title">
-            <a class="toggle-info btn"><span class="left"></span><span class="right"></span></a> 
-            <h2>Cute Stickers<small>Suggested CFG scale: 10-15 <br>Sampler k_euler_a, steps: 50</small></h2>
+            <a class="toggle-info btn">
+              <span class="left"></span>
+              <span class="right"></span>
+            </a>
+            <h2>Cute Stickers <small>Suggested CFG scale: 10-15 <br>Sampler k_euler_a, steps: 50 </small>
+            </h2>
           </div>
           <div class="card-flap flap1">
-            <hr/>
+            <hr />
             <div class="card-description">Die-cut sticker, Cute kawaii flower character sticker, white background, illustration minimalism, vector, pastel colors</div>
-            <hr/>
+            <hr />
             <div class="card-flap flap2">
-              <div class="card-actions"><a class="btn" onclick="copyDescription(this)">Copy</a></div>
+              <div class="card-actions">
+                <a class="btn" onclick="copyDescription(this)">Copy</a>
+              </div>
             </div>
           </div>
         </div>
         <div class="card">
-          <div class="card__image-holder"><img class="card__image" src="https://publicprompts.art/wp-content/uploads/2022/10/Anime-collage-1024x1024.png"/></div>
+          <div class="card__image-holder">
+            <img class="card__image" src="https://publicprompts.art/wp-content/uploads/2022/10/Anime-collage-1024x1024.png" />
+          </div>
           <div class="card-title">
-            <a class="toggle-info btn"><span class="left"></span><span class="right"></span></a> 
-            <h2>Realistic Anime Portraits<small>Suggested CFG scale: 10-15 <br>Sampler k_euler_a, steps: 50</small></h2>
+            <a class="toggle-info btn">
+              <span class="left"></span>
+              <span class="right"></span>
+            </a>
+            <h2>Realistic Anime Portraits <small>Suggested CFG scale: 10-15 <br>Sampler k_euler_a, steps: 50 </small>
+            </h2>
           </div>
           <div class="card-flap flap1">
-            <hr/>
+            <hr />
             <div class="card-description">Closeup face portrait of a black girl wearing crown of flowers, smooth soft skin, big dreamy eyes, beautiful intricate colored hair, symmetrical, anime wide eyes, soft lighting, detailed face, by makoto shinkai, stanley artgerm lau, wlop, rossdraws, concept art, digital painting, looking into camera</div>
-            <hr/>
+            <hr />
             <div class="card-flap flap2">
-              <div class="card-actions"><a class="btn" onclick="copyDescription(this)">Copy</a></div>
+              <div class="card-actions">
+                <a class="btn" onclick="copyDescription(this)">Copy</a>
+              </div>
             </div>
           </div>
         </div>
         <div class="card">
-          <div class="card__image-holder"><img class="card__image" src="https://publicprompts.art/wp-content/uploads/2022/10/Surreal-MicroWorlds-collage-1024x1024.png"/></div>
+          <div class="card__image-holder">
+            <img class="card__image" src="https://publicprompts.art/wp-content/uploads/2022/10/Surreal-MicroWorlds-collage-1024x1024.png" />
+          </div>
           <div class="card-title">
-            <a class="toggle-info btn"><span class="left"></span><span class="right"></span></a> 
-            <h2>Surreal Micro Worlds<small>Suggested CFG scale: 10-15 <br>Sampler k_euler_a, steps: 50</small></h2>
+            <a class="toggle-info btn">
+              <span class="left"></span>
+              <span class="right"></span>
+            </a>
+            <h2>Surreal Micro Worlds <small>Suggested CFG scale: 10-15 <br>Sampler k_euler_a, steps: 50 </small>
+            </h2>
           </div>
           <div class="card-flap flap1">
-            <hr/>
+            <hr />
             <div class="card-description">100mm photo of isometric floating island in the sky, surreal volcano, intricate, high detail, behance, microworlds smooth, macro sharp focus, centered</div>
-            <hr/>
+            <hr />
             <div class="card-flap flap2">
-              <div class="card-actions"><a class="btn" onclick="copyDescription(this)">Copy</a></div>
+              <div class="card-actions">
+                <a class="btn" onclick="copyDescription(this)">Copy</a>
+              </div>
             </div>
           </div>
         </div>
         <div class="card">
-          <div class="card__image-holder"><img class="card__image" src="https://publicprompts.art/wp-content/uploads/2022/10/Gold-Pendant-collage-1024x1024.png"/></div>
+          <div class="card__image-holder">
+            <img class="card__image" src="https://publicprompts.art/wp-content/uploads/2022/10/Gold-Pendant-collage-1024x1024.png" />
+          </div>
           <div class="card-title">
-            <a class="toggle-info btn"><span class="left"></span><span class="right"></span></a> 
-            <h2>Gold Pendant<small>Suggested CFG scale: 10-15 <br>Sampler k_euler_a, steps: 50</small></h2>
+            <a class="toggle-info btn">
+              <span class="left"></span>
+              <span class="right"></span>
+            </a>
+            <h2>Gold Pendant <small>Suggested CFG scale: 10-15 <br>Sampler k_euler_a, steps: 50 </small>
+            </h2>
           </div>
           <div class="card-flap flap1">
-            <hr/>
+            <hr />
             <div class="card-description">Gold Dia De Dos Duertos pendant, intricate 2d vector geometric, cutout shape pendant, blueprint frame lines sharp edges, svg vector style, product studio shoot</div>
-            <hr/>
+            <hr />
             <div class="card-flap flap2">
-              <div class="card-actions"><a class="btn" onclick="copyDescription(this)">Copy</a></div>
+              <div class="card-actions">
+                <a class="btn" onclick="copyDescription(this)">Copy</a>
+              </div>
             </div>
           </div>
         </div>
         <div class="card">
-          <div class="card__image-holder"><img class="card__image" src="https://publicprompts.art/wp-content/uploads/2022/10/BeFunky-collage-8-1024x1024.png"/></div>
+          <div class="card__image-holder">
+            <img class="card__image" src="https://publicprompts.art/wp-content/uploads/2022/10/BeFunky-collage-8-1024x1024.png" />
+          </div>
           <div class="card-title">
-            <a class="toggle-info btn"><span class="left"></span><span class="right"></span></a> 
-            <h2>Sport Team Logo V1<small>Suggested CFG scale: 10-15 <br>Sampler k_euler_a, steps: 50</small></h2>
+            <a class="toggle-info btn">
+              <span class="left"></span>
+              <span class="right"></span>
+            </a>
+            <h2>Sport Team Logo V1 <small>Suggested CFG scale: 10-15 <br>Sampler k_euler_a, steps: 50 </small>
+            </h2>
           </div>
           <div class="card-flap flap1">
-            <hr/>
+            <hr />
             <div class="card-description">2d ferocious lion head, vector illustration, angry eyes, football team emblem logo, 2d flat, centered</div>
-            <hr/>
+            <hr />
             <div class="card-flap flap2">
-              <div class="card-actions"><a class="btn" onclick="copyDescription(this)">Copy</a></div>
+              <div class="card-actions">
+                <a class="btn" onclick="copyDescription(this)">Copy</a>
+              </div>
             </div>
           </div>
         </div>
         <div class="card">
-          <div class="card__image-holder"><img class="card__image" src="https://publicprompts.art/wp-content/uploads/2022/10/BeFunky-collage-7-1024x1024.png"/></div>
+          <div class="card__image-holder">
+            <img class="card__image" src="https://publicprompts.art/wp-content/uploads/2022/10/BeFunky-collage-7-1024x1024.png" />
+          </div>
           <div class="card-title">
-            <a class="toggle-info btn"><span class="left"></span><span class="right"></span></a> 
-            <h2>Funky Pop Figurines<small>Suggested CFG scale: 10-15 <br>Sampler k_euler_a, steps: 50</small></h2>
+            <a class="toggle-info btn">
+              <span class="left"></span>
+              <span class="right"></span>
+            </a>
+            <h2>Funky Pop Figurines <small>Suggested CFG scale: 10-15 <br>Sampler k_euler_a, steps: 50 </small>
+            </h2>
           </div>
           <div class="card-flap flap1">
-            <hr/>
+            <hr />
             <div class="card-description">Funko pop Yoda figurine, made of plastic, product studio shot, on a white background, diffused lighting, centered</div>
-            <hr/>
+            <hr />
             <div class="card-flap flap2">
-              <div class="card-actions"><a class="btn" onclick="copyDescription(this)">Copy</a></div>
+              <div class="card-actions">
+                <a class="btn" onclick="copyDescription(this)">Copy</a>
+              </div>
             </div>
           </div>
         </div>
         <div class="card">
-          <div class="card__image-holder"><img class="card__image" src="https://publicprompts.art/wp-content/uploads/2022/10/BeFunky-collage-6-1024x1024.png"/></div>
+          <div class="card__image-holder">
+            <img class="card__image" src="https://publicprompts.art/wp-content/uploads/2022/10/BeFunky-collage-6-1024x1024.png" />
+          </div>
           <div class="card-title">
-            <a class="toggle-info btn"><span class="left"></span><span class="right"></span></a> 
-            <h2>Block Structures<small>Suggested CFG scale: 10-15 <br>Sampler k_euler_a, steps: 50</small></h2>
+            <a class="toggle-info btn">
+              <span class="left"></span>
+              <span class="right"></span>
+            </a>
+            <h2>Block Structures <small>Suggested CFG scale: 10-15 <br>Sampler k_euler_a, steps: 50 </small>
+            </h2>
           </div>
           <div class="card-flap flap1">
-            <hr/>
+            <hr />
             <div class="card-description">Tiny cute isometric temple, soft smooth lighting, soft colors, soft colors, 100mm lens, 3d blender render, trending on polycount, modular constructivism, blue blackground, physically based rendering, centered</div>
-            <hr/>
+            <hr />
             <div class="card-flap flap2">
-              <div class="card-actions"><a class="btn" onclick="copyDescription(this)">Copy</a></div>
+              <div class="card-actions">
+                <a class="btn" onclick="copyDescription(this)">Copy</a>
+              </div>
             </div>
           </div>
         </div>
         <div class="card">
-          <div class="card__image-holder"><img class="card__image" src="https://publicprompts.art/wp-content/uploads/2022/10/BeFunky-collage-5-1024x1024.png"/></div>
+          <div class="card__image-holder">
+            <img class="card__image" src="https://publicprompts.art/wp-content/uploads/2022/10/BeFunky-collage-5-1024x1024.png" />
+          </div>
           <div class="card-title">
-            <a class="toggle-info btn"><span class="left"></span><span class="right"></span></a> 
-            <h2>Low Poly Creatures<small>Suggested CFG scale: 10-15 <br>Sampler k_euler_a, steps: 50</small></h2>
+            <a class="toggle-info btn">
+              <span class="left"></span>
+              <span class="right"></span>
+            </a>
+            <h2>Low Poly Creatures <small>Suggested CFG scale: 10-15 <br>Sampler k_euler_a, steps: 50 </small>
+            </h2>
           </div>
           <div class="card-flap flap1">
-            <hr/>
+            <hr />
             <div class="card-description">Kawaii low poly panda character, 3d isometric render, white background, ambient occlusion, unity engine</div>
-            <hr/>
+            <hr />
             <div class="card-flap flap2">
-              <div class="card-actions"><a class="btn" onclick="copyDescription(this)">Copy</a></div>
+              <div class="card-actions">
+                <a class="btn" onclick="copyDescription(this)">Copy</a>
+              </div>
             </div>
           </div>
         </div>
         <div class="card">
-          <div class="card__image-holder"><img class="card__image" src="https://publicprompts.art/wp-content/uploads/2022/10/BeFunky-collage-3-1024x1024.png"/></div>
+          <div class="card__image-holder">
+            <img class="card__image" src="https://publicprompts.art/wp-content/uploads/2022/10/BeFunky-collage-3-1024x1024.png" />
+          </div>
           <div class="card-title">
-            <a class="toggle-info btn"><span class="left"></span><span class="right"></span></a> 
-            <h2>Isometric Rooms<small>Suggested CFG scale: 10 <br>Sampler DDIM, steps: 50</small></h2>
+            <a class="toggle-info btn">
+              <span class="left"></span>
+              <span class="right"></span>
+            </a>
+            <h2>Isometric Rooms <small>Suggested CFG scale: 10 <br>Sampler DDIM, steps: 50 </small>
+            </h2>
           </div>
           <div class="card-flap flap1">
-            <hr/>
+            <hr />
             <div class="card-description">Tiny cute isometric living room in a cutaway box, soft smooth lighting, with soft colors, purple and blue color scheme, soft colors, 100mm lens, 3d blender render</div>
-            <hr/>
+            <hr />
             <div class="card-flap flap2">
-              <div class="card-actions"><a class="btn" onclick="copyDescription(this)">Copy</a></div>
+              <div class="card-actions">
+                <a class="btn" onclick="copyDescription(this)">Copy</a>
+              </div>
             </div>
           </div>
         </div>
         <div class="card">
-          <div class="card__image-holder"><img class="card__image" src="https://publicprompts.art/wp-content/uploads/2022/09/BeFunky-collage-4-1024x1024.png"/></div>
+          <div class="card__image-holder">
+            <img class="card__image" src="https://publicprompts.art/wp-content/uploads/2022/09/BeFunky-collage-4-1024x1024.png" />
+          </div>
           <div class="card-title">
-            <a class="toggle-info btn"><span class="left"></span><span class="right"></span></a> 
-            <h2>Cute Creatures<small>Suggested CFG scale: 10-15 <br>Sampler k_euler_a, steps: 50</small></h2>
+            <a class="toggle-info btn">
+              <span class="left"></span>
+              <span class="right"></span>
+            </a>
+            <h2>Cute Creatures <small>Suggested CFG scale: 10-15 <br>Sampler k_euler_a, steps: 50 </small>
+            </h2>
           </div>
           <div class="card-flap flap1">
-            <hr/>
+            <hr />
             <div class="card-description">3d fluffy llama, closeup cute and adorable, cute big circular reflective eyes, long fuzzy fur, Pixar render, unreal engine cinematic smooth, intricate detail, cinematic</div>
-            <hr/>
+            <hr />
             <div class="card-flap flap2">
-              <div class="card-actions"><a class="btn" onclick="copyDescription(this)">Copy</a></div>
+              <div class="card-actions">
+                <a class="btn" onclick="copyDescription(this)">Copy</a>
+              </div>
             </div>
           </div>
         </div>
         <div class="card">
-          <div class="card__image-holder"><img class="card__image" src="https://publicprompts.art/wp-content/uploads/2022/09/BeFunky-collage-2-1024x1024.png"/></div>
+          <div class="card__image-holder">
+            <img class="card__image" src="https://publicprompts.art/wp-content/uploads/2022/09/BeFunky-collage-2-1024x1024.png" />
+          </div>
           <div class="card-title">
-            <a class="toggle-info btn"><span class="left"></span><span class="right"></span></a> 
-            <h2>Rendered Objects<small>Suggested CFG scale: 10-15 <br>Sampler k_euler_a, steps: 50</small></h2>
+            <a class="toggle-info btn">
+              <span class="left"></span>
+              <span class="right"></span>
+            </a>
+            <h2>Rendered Objects <small>Suggested CFG scale: 10-15 <br>Sampler k_euler_a, steps: 50 </small>
+            </h2>
           </div>
           <div class="card-flap flap1">
-            <hr/>
+            <hr />
             <div class="card-description">Tiny cute isometric porcelain cup of coffee, soft smooth lighting, with soft colors, 100mm lens, 3d blender render, trending on polycount, modular constructivism, blue background, physically based rendering, centered</div>
-            <hr/>
+            <hr />
             <div class="card-flap flap2">
-              <div class="card-actions"><a class="btn" onclick="copyDescription(this)">Copy</a></div>
+              <div class="card-actions">
+                <a class="btn" onclick="copyDescription(this)">Copy</a>
+              </div>
             </div>
           </div>
         </div>
-
       </div>
-
       <div class="ncards">
-
-      <div class="ncard">
-        <div class="ncontent">
-          <h2 class="ntitle">Default <br>Negative</h2>
-          <p class="description">For higher-quality images, use these general prompts for any image generation with Stable Diffusion or other tools.</p>
-          <p class="ncopy">amputee, autograph, bad anatomy, bad illustration, bad proportions, beyond the borders, blank background, blurry, body out of frame, boring background, branding, cropped, cut off, deformed, disfigured, dismembered, disproportioned, distorted, draft, duplicate, duplicated features, extra arms, extra fingers, extra hands, extra legs, extra limbs, fault, flaw, fused fingers, grains, grainy, gross proportions, hazy, identifying mark, improper scale, incorrect physiology, incorrect ratio, indistinct, kitsch, logo, long neck, low quality, low resolution, macabre, malformed, mark, misshapen, missing arms, missing fingers, missing hands, missing legs, mistake, morbid, mutated hands, mutation, mutilated, off-screen, out of frame, outside the picture, pixelated, poorly drawn face, poorly drawn feet, poorly drawn hands, printed words, render, repellent, replicate, reproduce, revolting dimensions, script, shortened, sign, signature, split image, squint, storyboard, text, tiling, trimmed, ugly, unfocused, unattractive, unnatural pose, unreal engine, unsightly, watermark, written language, censored, floating limbs, disconnected head, huge calf, disappearing thigh, abnormal eye proportion, abnormal legs, abnormal feet</p>
-          <button class="nbtn" onfocus="copyText(this)">Copy</button>
+        <div class="ncard">
+          <div class="ncontent">
+            <h2 class="ntitle">Default <br>Negative </h2>
+            <p class="description">For higher-quality images, use these general prompts for any image generation with Stable Diffusion or other tools.</p>
+            <p class="ncopy">amputee, autograph, bad anatomy, bad illustration, bad proportions, beyond the borders, blank background, blurry, body out of frame, boring background, branding, cropped, cut off, deformed, disfigured, dismembered, disproportioned, distorted, draft, duplicate, duplicated features, extra arms, extra fingers, extra hands, extra legs, extra limbs, fault, flaw, fused fingers, grains, grainy, gross proportions, hazy, identifying mark, improper scale, incorrect physiology, incorrect ratio, indistinct, kitsch, logo, long neck, low quality, low resolution, macabre, malformed, mark, misshapen, missing arms, missing fingers, missing hands, missing legs, mistake, morbid, mutated hands, mutation, mutilated, off-screen, out of frame, outside the picture, pixelated, poorly drawn face, poorly drawn feet, poorly drawn hands, printed words, render, repellent, replicate, reproduce, revolting dimensions, script, shortened, sign, signature, split image, squint, storyboard, text, tiling, trimmed, ugly, unfocused, unattractive, unnatural pose, unreal engine, unsightly, watermark, written language, censored, floating limbs, disconnected head, huge calf, disappearing thigh, abnormal eye proportion, abnormal legs, abnormal feet</p>
+            <button class="nbtn" onfocus="copyText(this)">Copy</button>
+          </div>
         </div>
-      </div>
-      <div class="ncard">
-        <div class="ncontent">
-          <h2 class="ntitle">Negative <br>(sfw)</h2>
-          <p class="description">To ensure safe content generation and avoid NSFW (Not Safe For Work) results, refrain from using explicit or inappropriate prompts.</p>
-          <p class="ncopy">NSFW, Cleavage, Pubic Hair, Nudity, Naked, Au naturel, Watermark, Text, censored, deformed, bad anatomy, disfigured, poorly drawn face, mutated, extra limb, ugly, poorly drawn hands, missing limb, floating limbs, disconnected limbs, disconnected head, malformed hands, long neck, mutated hands and fingers, bad hands, missing fingers, cropped, worst quality, low quality, mutation, poorly drawn, huge calf, bad hands, fused hand, missing hand, disappearing arms, disappearing thigh, disappearing calf, disappearing legs, missing fingers, fused fingers, abnormal eye proportion, Abnormal hands, abnormal legs, abnormal feet,  abnormal fingers</p>
-          <button class="nbtn" onfocus="copyText(this)">Copy</button>
+        <div class="ncard">
+          <div class="ncontent">
+            <h2 class="ntitle">Negative <br>(sfw) </h2>
+            <p class="description">To ensure safe content generation and avoid NSFW (Not Safe For Work) results, refrain from using explicit or inappropriate prompts.</p>
+            <p class="ncopy">NSFW, Cleavage, Pubic Hair, Nudity, Naked, Au naturel, Watermark, Text, censored, deformed, bad anatomy, disfigured, poorly drawn face, mutated, extra limb, ugly, poorly drawn hands, missing limb, floating limbs, disconnected limbs, disconnected head, malformed hands, long neck, mutated hands and fingers, bad hands, missing fingers, cropped, worst quality, low quality, mutation, poorly drawn, huge calf, bad hands, fused hand, missing hand, disappearing arms, disappearing thigh, disappearing calf, disappearing legs, missing fingers, fused fingers, abnormal eye proportion, Abnormal hands, abnormal legs, abnormal feet, abnormal fingers</p>
+            <button class="nbtn" onfocus="copyText(this)">Copy</button>
+          </div>
         </div>
-      </div>
-      <div class="ncard">
-        <div class="ncontent">
-          <h2 class="ntitle">Negative <br>(low token)</h2>
-          <p class="description">Low token negative prompt to improve image quality with Stable Diffusion or other tools.</p>
-          <p class="ncopy">lowres, bad anatomy, bad hands, text, error, missing fingers, extra digit, fewer digits, cropped, worst quality, low quality, normal quality, jpeg artifacts, signature, watermark, username, blurry</p>
-          <button class="nbtn" onfocus="copyText(this)">Copy</button>
+        <div class="ncard">
+          <div class="ncontent">
+            <h2 class="ntitle">Negative <br>(low token) </h2>
+            <p class="description">Low token negative prompt to improve image quality with Stable Diffusion or other tools.</p>
+            <p class="ncopy">lowres, bad anatomy, bad hands, text, error, missing fingers, extra digit, fewer digits, cropped, worst quality, low quality, normal quality, jpeg artifacts, signature, watermark, username, blurry</p>
+            <button class="nbtn" onfocus="copyText(this)">Copy</button>
+          </div>
         </div>
-      </div>
-      <div class="ncard">
-        <div class="ncontent">
-          <h2 class="ntitle">Negative <br>(landscapes)</h2>
-          <p class="description">When creating images of a landscape, natural beauty, or scenic view on Stable Diffusion.</p>
-          <p class="ncopy">blurry, boring, close-up, dark, details are low, distorted details, eerie, foggy, gloomy, grains, grainy, grayscale, homogenous, low contrast, low quality, lowres, macro, monochrome, multiple angles, multiple views, opaque, overexposed, oversaturated, plain, plain background, portrait, simple background, standard, surreal, unattractive, uncreative, underexposed</p>
-          <button class="nbtn" onfocus="copyText(this)">Copy</button>
+        <div class="ncard">
+          <div class="ncontent">
+            <h2 class="ntitle">Negative <br>(landscapes) </h2>
+            <p class="description">When creating images of a landscape, natural beauty, or scenic view on Stable Diffusion.</p>
+            <p class="ncopy">blurry, boring, close-up, dark, details are low, distorted details, eerie, foggy, gloomy, grains, grainy, grayscale, homogenous, low contrast, low quality, lowres, macro, monochrome, multiple angles, multiple views, opaque, overexposed, oversaturated, plain, plain background, portrait, simple background, standard, surreal, unattractive, uncreative, underexposed</p>
+            <button class="nbtn" onfocus="copyText(this)">Copy</button>
+          </div>
         </div>
-      </div>
-      <div class="ncard">
-        <div class="ncontent">
-          <h2 class="ntitle">Negative <br>(cityscapes)</h2>
-          <p class="description">When generating images of cities, streets, buildings, and monuments, you can use the following negative prompt.</p>
-          <p class="ncopy">animals (optional), asymmetrical buildings, blurry, cars (optional), close-up, creepy, deformed structures, grainy, jpeg artifacts, low contrast, low quality, lowres, macro, multiple angles, multiple views, overexposed, oversaturated, people (optional), pets (optional), plain background, scary, solid background, surreal, underexposed, unreal architecture, unreal sky, weird colors</p>
-          <button class="nbtn" onfocus="copyText(this)">Copy</button>
+        <div class="ncard">
+          <div class="ncontent">
+            <h2 class="ntitle">Negative <br>(cityscapes) </h2>
+            <p class="description">When generating images of cities, streets, buildings, and monuments, you can use the following negative prompt.</p>
+            <p class="ncopy">animals (optional), asymmetrical buildings, blurry, cars (optional), close-up, creepy, deformed structures, grainy, jpeg artifacts, low contrast, low quality, lowres, macro, multiple angles, multiple views, overexposed, oversaturated, people (optional), pets (optional), plain background, scary, solid background, surreal, underexposed, unreal architecture, unreal sky, weird colors</p>
+            <button class="nbtn" onfocus="copyText(this)">Copy</button>
+          </div>
         </div>
-      </div>
-      <div class="ncard">
-        <div class="ncontent">
-          <h2 class="ntitle">Negative <br>(portraits)</h2>
-          <p class="description">When creating realistic-looking images of people and pets on Stable Diffusion.</p>
-          <p class="ncopy">3D, absent limbs, age spot, additional appendages, additional digits, additional limbs, altered appendages, amputee, asymmetric, asymmetric ears, bad anatomy, bad ears, bad eyes, bad face, bad proportions, beard (optional), broken finger, broken hand, broken leg, broken wrist, cartoon, childish (optional), cloned face, cloned head, collapsed eyeshadow, combined appendages, conjoined, copied visage, corpse, cripple, cropped head, cross-eyed, depressed, desiccated, disconnected limb, disfigured, dismembered, disproportionate, double face, duplicated features, eerie, elongated throat, excess appendages, excess body parts, excess extremities, extended cervical region, extra limb, fat, flawed structure, floating hair (optional), floating limb, four fingers per hand, fused hand, group of people, gruesome, high depth of field, immature, imperfect eyes, incorrect physiology, kitsch, lacking appendages, lacking body, long body, macabre, malformed hands, malformed limbs, mangled, mangled visage, merged phalanges, missing arm, missing leg, missing limb, mustache (optional), nonexistent extremities, old, out of focus, out of frame, parched, plastic, poor facial details, poor morphology, poorly drawn face, poorly drawn feet, poorly drawn hands, poorly rendered face, poorly rendered hands, six fingers per hand, skewed eyes, skin blemishes, squint, stiff face, stretched nape, stuffed animal, surplus appendages, surplus phalanges, surreal, ugly, unbalanced body, unnatural, unnatural body, unnatural skin, unnatural skin tone, weird colors</p>
-          <button class="nbtn" onfocus="copyText(this)">Copy</button>
+        <div class="ncard">
+          <div class="ncontent">
+            <h2 class="ntitle">Negative <br>(portraits) </h2>
+            <p class="description">When creating realistic-looking images of people and pets on Stable Diffusion.</p>
+            <p class="ncopy">3D, absent limbs, age spot, additional appendages, additional digits, additional limbs, altered appendages, amputee, asymmetric, asymmetric ears, bad anatomy, bad ears, bad eyes, bad face, bad proportions, beard (optional), broken finger, broken hand, broken leg, broken wrist, cartoon, childish (optional), cloned face, cloned head, collapsed eyeshadow, combined appendages, conjoined, copied visage, corpse, cripple, cropped head, cross-eyed, depressed, desiccated, disconnected limb, disfigured, dismembered, disproportionate, double face, duplicated features, eerie, elongated throat, excess appendages, excess body parts, excess extremities, extended cervical region, extra limb, fat, flawed structure, floating hair (optional), floating limb, four fingers per hand, fused hand, group of people, gruesome, high depth of field, immature, imperfect eyes, incorrect physiology, kitsch, lacking appendages, lacking body, long body, macabre, malformed hands, malformed limbs, mangled, mangled visage, merged phalanges, missing arm, missing leg, missing limb, mustache (optional), nonexistent extremities, old, out of focus, out of frame, parched, plastic, poor facial details, poor morphology, poorly drawn face, poorly drawn feet, poorly drawn hands, poorly rendered face, poorly rendered hands, six fingers per hand, skewed eyes, skin blemishes, squint, stiff face, stretched nape, stuffed animal, surplus appendages, surplus phalanges, surreal, ugly, unbalanced body, unnatural, unnatural body, unnatural skin, unnatural skin tone, weird colors</p>
+            <button class="nbtn" onfocus="copyText(this)">Copy</button>
+          </div>
         </div>
-      </div>
-      <div class="ncard">
-        <div class="ncontent">
-          <h2 class="ntitle">Negative <br>(photorealistic)</h2>
-          <p class="description">To create natural-looking, photorealistic images by eliminating unsuitable styles and elements.</p>
-          <p class="ncopy">3D render, aberrations, abstract, anime, black and white (optional), cartoon, collapsed, conjoined, creative, drawing, extra windows, harsh lighting, illustration, jpeg artifacts, low saturation, monochrome (optional), multiple levels, overexposed, oversaturated, painting, photoshop, rotten, sketches, surreal, twisted, UI, underexposed, unnatural, unreal engine, unrealistic, video game</p>
-          <button class="nbtn" onfocus="copyText(this)">Copy</button>
+        <div class="ncard">
+          <div class="ncontent">
+            <h2 class="ntitle">Negative <br>(photorealistic) </h2>
+            <p class="description">To create natural-looking, photorealistic images by eliminating unsuitable styles and elements.</p>
+            <p class="ncopy">3D render, aberrations, abstract, anime, black and white (optional), cartoon, collapsed, conjoined, creative, drawing, extra windows, harsh lighting, illustration, jpeg artifacts, low saturation, monochrome (optional), multiple levels, overexposed, oversaturated, painting, photoshop, rotten, sketches, surreal, twisted, UI, underexposed, unnatural, unreal engine, unrealistic, video game</p>
+            <button class="nbtn" onfocus="copyText(this)">Copy</button>
+          </div>
         </div>
-      </div>
-      <div class="ncard">
-        <div class="ncontent">
-          <h2 class="ntitle">Negative <br>(art)</h2>
-          <p class="description">When generating paintings, illustrations, digital art, pop art, or drawings, here is a negative prompt you may use.</p>
-          <p class="ncopy">3d, bad art, bad artist, bad fan art, CGI, grainy, human (optional), inaccurate sky, inaccurate trees, kitsch, lazy art, less creative, lowres, noise, photorealistic, poor detailing, realism, realistic, render, stacked background, stock image, stock photo, text, unprofessional, unsmooth</p>
-          <button class="nbtn" onfocus="copyText(this)">Copy</button>
+        <div class="ncard">
+          <div class="ncontent">
+            <h2 class="ntitle">Negative <br>(art) </h2>
+            <p class="description">When generating paintings, illustrations, digital art, pop art, or drawings, here is a negative prompt you may use.</p>
+            <p class="ncopy">3d, bad art, bad artist, bad fan art, CGI, grainy, human (optional), inaccurate sky, inaccurate trees, kitsch, lazy art, less creative, lowres, noise, photorealistic, poor detailing, realism, realistic, render, stacked background, stock image, stock photo, text, unprofessional, unsmooth</p>
+            <button class="nbtn" onfocus="copyText(this)">Copy</button>
+          </div>
         </div>
-
-      </div>
 
     </main>
 
