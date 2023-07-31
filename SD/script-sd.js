@@ -12,6 +12,9 @@ const allFilter = document.querySelector('a.button-filter[data-filter="all"]');
 allFilter.classList.add('selected');
 let selectedFilter = allFilter;
 
+// Get the search button
+const searchBtn = document.getElementById('searchButton');
+
 // Add event listeners
 navItems.forEach(item => {
 	item.addEventListener('click', selectNavItem);
@@ -23,14 +26,20 @@ filterItems.forEach(item => {
 
 function selectNavItem() {
 	// Unselect search button if home clicked
-	if (this.classList.contains('home')) {
+	if (this.classList.contains('selected')) {
 		searchBtn.classList.remove('selected');
-	  }
-	
-	if (this === selectedItem) return;
+	}
 
-	this.classList.add('selected');
-	selectedItem = this;
+	if (this === selectedItem) {
+		this.classList.remove('selected');
+		selectedItem = null;
+	} else {
+		this.classList.add('selected');
+		if (selectedItem) {
+			selectedItem.classList.remove('selected');
+		}
+		selectedItem = this;
+	}
 }
 
 function selectFilter() {
@@ -51,7 +60,6 @@ function selectFilter() {
 }
 
 // Search button logic
-const searchBtn = document.getElementById('searchButton');
 const searchInput = searchBtn.querySelector('input.search');
 
 searchBtn.addEventListener('click', e => {
@@ -59,7 +67,20 @@ searchBtn.addEventListener('click', e => {
 	searchInput.focus();
 });
 
-// Selected status of filter buttons -- mobile nav bar
+
+// Home button delay
+document.getElementById("delayButton").addEventListener("click", function (event) {
+	event.preventDefault();
+	this.disabled = true;
+	setTimeout(() => {
+	  window.open(this.href, "_blank");
+	  this.disabled = false;
+	}, 0);
+  });
+  
+  // MOBILE NAV BAR -----------------
+
+// Selected status of filter buttons
 const buttonFilters = document.querySelectorAll('.mbutton-filter');
 
 // Add event listener to each button-filter
@@ -72,7 +93,11 @@ buttonFilters.forEach(button => {
 	});
 });
 
-
+// Explicitly select ALL filter on init
+const allmFilter = document.querySelector('.mbutton-filter[data-filter="all"]');
+allmFilter.classList.add('selected');
+let mselectedFilter = allmFilter;
+  
 // -------------------------------------------------
 // Positive cards system
 // -------------------------------------------------

@@ -500,6 +500,9 @@
      .ncards {
          grid-template-columns: repeat(2, 1fr);
     }
+    .ncard {
+         width: 100%;
+    }
 }
  @media (max-width: 600px) {
      .ncards {
@@ -636,4 +639,3 @@
          transition-duration: 0s;
     }
 }
- 
