@@ -187,7 +187,7 @@ nav > ol > a:not(.selected):hover::after {
   main {
     width: 100%;
     height: 100%;
-    overflow-y: visible;
+    overflow-y: auto;
   }
   .pcards,
   .ncards {
