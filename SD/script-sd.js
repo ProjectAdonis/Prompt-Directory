@@ -151,64 +151,63 @@ $(document).ready(function() {
 
 
 function copyDescription(button) {
-	// Get the parent element (.card) of the clicked button
 	var cardElement = button.closest('.card');
-
-	// Get the card description text from the .card-description element within the same .card
 	var descriptionToCopy = cardElement.querySelector('.card-description').innerText;
-
-	// Change the text of the clicked button to "Copied!"
-	button.innerText = "Copied!";
-
-	// Copy the description text to the clipboard
-	copyToClipboard(descriptionToCopy);
-
+	button.innerText = 'Copied!';
+  
+	// Create a temporary input element to copy the text
+	var tempInput = document.createElement('input');
+	tempInput.style.position = 'absolute';
+	tempInput.style.left = '-9999px';
+	document.body.appendChild(tempInput);
+  
+	// Set the input value to the description text
+	tempInput.value = descriptionToCopy;
+	tempInput.select();
+  
+	// Execute the copy command inside the click event
+	document.execCommand('copy');
+  
+	// Remove the temporary input element
+	document.body.removeChild(tempInput);
+  
 	// Set a timeout to revert the button text to "Copy" after a brief delay (e.g., 2 seconds)
-	setTimeout(function() {
-		button.innerText = "Copy";
+	setTimeout(function () {
+	  button.innerText = 'Copy';
 	}, 2000);
-}
-
-function copyToClipboard(text) {
-	var textarea = document.createElement("textarea");
-	textarea.value = text;
-	document.body.appendChild(textarea);
-	textarea.select();
-	document.execCommand("copy");
-	document.body.removeChild(textarea);
-}
+  }
+  
 
 // -------------------------------------------------
 // Copy buttons ncards
 // -------------------------------------------------
 
 function copyText(button) {
-	// Get the parent element (.ncontent) of the clicked button
 	var contentElement = button.parentElement;
-
-	// Get the text from the <p> element within the same .ncontent
 	var textToCopy = contentElement.querySelector('.ncopy').innerText;
-
-	// Change the text of the clicked button to "Copied!"
-	button.innerText = "Copied!";
-
-	// Copy the text to the clipboard
-	copyToClipboard(textToCopy);
-
+	button.innerText = 'Copied!';
+  
+	// Create a temporary input element to copy the text
+	var tempInput = document.createElement('input');
+	tempInput.style.position = 'absolute';
+	tempInput.style.left = '-9999px';
+	document.body.appendChild(tempInput);
+  
+	// Set the input value to the text to copy
+	tempInput.value = textToCopy;
+	tempInput.select();
+  
+	// Execute the copy command inside the click event
+	document.execCommand('copy');
+  
+	// Remove the temporary input element
+	document.body.removeChild(tempInput);
+  
 	// Set a timeout to revert the button text to "Copy" after a brief delay (e.g., 2 seconds)
-	setTimeout(function() {
-		button.innerText = "Copy";
+	setTimeout(function () {
+	  button.innerText = 'Copy';
 	}, 2000);
-}
-
-function copyToClipboard(text) {
-	var textarea = document.createElement("textarea");
-	textarea.value = text;
-	document.body.appendChild(textarea);
-	textarea.select();
-	document.exec1Command("copy");
-	document.body.removeChild(textarea);
-}
+  }
 
 
 
