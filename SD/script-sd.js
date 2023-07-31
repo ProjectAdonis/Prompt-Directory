@@ -149,32 +149,21 @@ $(document).ready(function() {
 // Copy buttons pcards
 // -------------------------------------------------
 
-
 function copyDescription(button) {
 	var cardElement = button.closest('.card');
 	var descriptionToCopy = cardElement.querySelector('.card-description').innerText;
 	button.innerText = 'Copied!';
   
-	// Create a temporary input element to copy the text
-	var tempInput = document.createElement('input');
-	tempInput.style.position = 'absolute';
-	tempInput.style.left = '-9999px';
-	document.body.appendChild(tempInput);
-  
-	// Set the input value to the description text
-	tempInput.value = descriptionToCopy;
-	tempInput.select();
-  
-	// Execute the copy command inside the click event
-	document.execCommand('copy');
-  
-	// Remove the temporary input element
-	document.body.removeChild(tempInput);
-  
-	// Set a timeout to revert the button text to "Copy" after a brief delay (e.g., 2 seconds)
-	setTimeout(function () {
+	// Use the Clipboard API to copy the text
+	navigator.clipboard.writeText(descriptionToCopy).then(function () {
+	  // Set a timeout to revert the button text to "Copy" after a brief delay (e.g., 2 seconds)
+	  setTimeout(function () {
+		button.innerText = 'Copy';
+	  }, 2000);
+	}).catch(function (err) {
+	  console.error('Failed to copy: ', err);
 	  button.innerText = 'Copy';
-	}, 2000);
+	});
   }
   
 
@@ -187,26 +176,16 @@ function copyText(button) {
 	var textToCopy = contentElement.querySelector('.ncopy').innerText;
 	button.innerText = 'Copied!';
   
-	// Create a temporary input element to copy the text
-	var tempInput = document.createElement('input');
-	tempInput.style.position = 'absolute';
-	tempInput.style.left = '-9999px';
-	document.body.appendChild(tempInput);
-  
-	// Set the input value to the text to copy
-	tempInput.value = textToCopy;
-	tempInput.select();
-  
-	// Execute the copy command inside the click event
-	document.execCommand('copy');
-  
-	// Remove the temporary input element
-	document.body.removeChild(tempInput);
-  
-	// Set a timeout to revert the button text to "Copy" after a brief delay (e.g., 2 seconds)
-	setTimeout(function () {
+	// Use the Clipboard API to copy the text
+	navigator.clipboard.writeText(textToCopy).then(function () {
+	  // Set a timeout to revert the button text to "Copy" after a brief delay (e.g., 2 seconds)
+	  setTimeout(function () {
+		button.innerText = 'Copy';
+	  }, 2000);
+	}).catch(function (err) {
+	  console.error('Failed to copy: ', err);
 	  button.innerText = 'Copy';
-	}, 2000);
+	});
   }
 
 
