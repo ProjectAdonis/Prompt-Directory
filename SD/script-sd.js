@@ -324,6 +324,14 @@ function filterResults(searchQuery = "") {
 
 	// Update the grid layout after filtering
 	updateNCardsGridLayout();
+
+	// Show a no results message if no cards match the search query
+	const noResultsMessage = document.querySelector(".no-results");
+	if (atLeastOneCardMatches) {
+		noResultsMessage.style.display = "none";
+	} else {
+		noResultsMessage.style.display = "block";
+	}
 }
 
 // Get all the cards and the pcards container
