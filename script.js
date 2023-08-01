@@ -4,17 +4,30 @@ $(function() {
   var $rightSection = $('.one-half.right');
   var $h1l = $('.h1-l');
   var $h1r = $('.h1-r');
+ 
+  
   var $bg = $('body');
-
   const checkbox = document.getElementById("checkbox");
 
-  checkbox.addEventListener("change", () => {
-    if (checkbox.checked) {
-      $bg.css({ 'background': 'linear-gradient(90deg, rgba(104,88,63,1) 0%, rgba(76,98,83,1) 75%)' });
+  function changeBackgroundColor() {
+    const screenWidth = window.innerWidth;
+    if (screenWidth < 768) {
+      $bg.css({ 'background': 'rgb(255, 216, 156)' });
     } else {
-      $bg.css({ 'background': 'linear-gradient(90deg, rgba(255,216,156,0.5) 0%, rgba(162,205,176,0.5) 75%)' });
+      if (checkbox.checked) {
+        $bg.css({ 'background': 'linear-gradient(90deg, rgba(104,88,63,1) 0%, rgba(76,98,83,1) 75%)' });
+      } else {
+        $bg.css({ 'background': 'linear-gradient(90deg, rgba(255,216,156,0.5) 0%, rgba(162,205,176,0.5) 75%)' });
+      }
     }
-  });
+  }
+
+changeBackgroundColor();
+
+checkbox.addEventListener("change", changeBackgroundColor);
+
+window.addEventListener("resize", changeBackgroundColor);
+
 
   $leftSection.click(function() {
     $container.toggleClass('left-is-hovered', !$container.hasClass('left-is-hovered'));
