@@ -106,6 +106,27 @@ window.addEventListener("resize", changeBackgroundColor);
 });
 
 
+// Function to open the new webpage with a delay
+function openWithDelay(url) {
+  setTimeout(function() {
+    window.open(url, "_blank");
+  }, 500); // Adjust the delay time (in milliseconds) as needed
+}
+
+// Add event listener to the buttons
+window.addEventListener("DOMContentLoaded", function() {
+  var buttons = document.querySelectorAll(".cta");  
+
+  buttons.forEach(function(button) {
+    button.addEventListener("click", function(event) {
+        event.preventDefault(); // Prevent default link behavior
+        var targetUrl = button.getAttribute("href");
+        openWithDelay(targetUrl);
+    });
+  });
+});
+
+
 
 
 
