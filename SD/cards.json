@@ -298,5 +298,101 @@
         "title": "Landscape",
         "smallTitle": "Suggested CFG scale: 7 Sampler Euler a, steps: 25",
         "description": "pastures, serene, vistas, detailed, sun light, soft light, golden hour light"
+    },
+    {
+        "imageSrc": "../assets/sd/Positive prompt images/51. Cinematic Look.webp",
+        "title": "Cinematic Look",
+        "smallTitle": "Suggested CFG scale: 7 Sampler Euler a, steps: 25",
+        "description": "cinematic photo of <i>{Prompt}</i> 35mm photograph, film, bokeh, professional, 4k, highly detailed"
+    },
+    {
+        "imageSrc": "../assets/sd/Positive prompt images/52. Model Shot.webp",
+        "title": "Model Shot",
+        "smallTitle": "Suggested CFG scale: 7 Sampler Euler a, steps: 25",
+        "description": "model shot of <i>{Prompt}</i> posing for a picture , rendered in lumion pro, anime girl in real life, beautiful portrait photo, bright background"
+    },
+    {
+        "imageSrc": "../assets/sd/Positive prompt images/53. Mixed Heroes.webp",
+        "title": "Mixed Heroes",
+        "smallTitle": "Suggested CFG scale: 7 Sampler Euler a, steps: 25",
+        "description": "(perfect mix between <i>{Prompt}</i> and <i>{Prompt}</i>:1.9), destroying city, blood, epic, cataclysmic, gargantuan, absurdres, best quality, realistic style"
+    },
+    {
+        "imageSrc": "../assets/sd/Positive prompt images/54. Pastel Illustration.webp",
+        "title": "Pastel Illustration",
+        "smallTitle": "Suggested CFG scale: 7 Sampler Euler a, steps: 25",
+        "description": "<i>{Prompt}</i>, inspired by Cyril Rolando, shutterstock, highly detailed illustration, full color illustration, very detailed illustration, dan mumford and alex grey style"
+    },
+    {
+        "imageSrc": "../assets/sd/Positive prompt images/55. Clay Figurine.webp",
+        "title": "Clay Figurine",
+        "smallTitle": "Suggested CFG scale: 7 Sampler Euler a, steps: 25",
+        "description": "claymation style <i>{Prompt}</i>, sculpture, clay art, centered composition, play-doh"
+    },
+    {
+        "imageSrc": "../assets/sd/Positive prompt images/56. Low Poly Island.webp",
+        "title": "Low Poly Island",
+        "smallTitle": "Suggested CFG scale: 7 Sampler Euler a, steps: 25",
+        "description": "low-poly style <i>{Prompt}</i> island, ambient occlusion . low-poly game art, polygon mesh, jagged, blocky, wireframe edges, centered composition"
+    },
+    {
+        "imageSrc": "../assets/sd/Positive prompt images/57. Neon Cyberpunk.webp",
+        "title": "Neon Cyberpunk",
+        "smallTitle": "Suggested CFG scale: 7 Sampler Euler a, steps: 25",
+        "description": "vaporwave style of <i>{Prompt}</i>, cyberpunk, vaporwave, neon, vibes, vibrant, stunningly beautiful, crisp, detailed, sleek, ultramodern, magenta highlights, dark purple shadows, high contrast, cinematic, ultra detailed, intricate, professional"
+    },
+    {
+        "imageSrc": "../assets/sd/Positive prompt images/58. Fantasy Art.webp",
+        "title": "Fantasy Art",
+        "smallTitle": "Suggested CFG scale: 7 Sampler Euler a, steps: 25",
+        "description": "concept art of <i>{Prompt}</i>, clouds, digital artwork, illustrative, painterly, matte painting, highly detailed, cinematic composition"
+    },
+    {
+        "imageSrc": "../assets/sd/Positive prompt images/59. Anime Style.webp",
+        "title": "Anime Style",
+        "smallTitle": "Suggested CFG scale: 7 Sampler Euler a, steps: 25",
+        "description": "anime artwork of <i>{Prompt}</i>, dramatic, anime style, key visual, vibrant, studio anime, highly detailed"
+    },
+    {
+        "imageSrc": "../assets/sd/Positive prompt images/60. Nature Photography.webp",
+        "title": "Nature Photography",
+        "smallTitle": "Suggested CFG scale: 7 Sampler Euler a, steps: 25",
+        "description": "cinematic close-up photo of <i>{Prompt}</i>, 135mm IMAX filmstill, film, DOF, professional, 8k, highly detailed aesthetically pleasing color scheme, editorial"
+    },
+    {
+        "imageSrc": "../assets/sd/Positive prompt images/61. Chinese Art.webp",
+        "title": "Chinese Art",
+        "smallTitle": "Suggested CFG scale: 7 Sampler Euler a, steps: 25",
+        "description": "a painting of <i>{Prompt}</i>, a fine art painting, by Qiu Ying, no gradients, flowing sakura silk, beautiful oil painting"
+    },
+    {
+        "imageSrc": "../assets/sd/Positive prompt images/62. Colorful Painting.webp",
+        "title": "Colorful Painting",
+        "smallTitle": "Suggested CFG scale: 7 Sampler Euler a, steps: 25",
+        "description": "a painting of <i>{Prompt}</i>, a digital painting, by Jason Benjamin, shutterstock, colorful vector illustration, mixed media style illustration, epic full color illustration, mascot illustration"
+    },
+    {
+        "imageSrc": "../assets/sd/Positive prompt images/63. Graffiti Art.webp",
+        "title": "Graffiti Art",
+        "smallTitle": "Suggested CFG scale: 7 Sampler Euler a, steps: 25",
+        "description": "a painting of <i>{Prompt}</i>, graffiti art, inspired by Brad Kunkle, tutu, russ mills, hip skirt wings, andrey gordeev"
+    },
+    {
+        "imageSrc": "../assets/sd/Positive prompt images/64. B&W Shots.webp",
+        "title": "B&W Shots",
+        "smallTitle": "Suggested CFG scale: 7 Sampler Euler a, steps: 25",
+        "description": "b&w photography, model shot, <i>{Prompt}</i>, beautiful detailed eyes, professional award winning portrait photography, Zeiss 150mm f/2.8, highly detailed glossy eyes, high detailed skin, skin pores"
+    },
+    {
+        "imageSrc": "../assets/sd/Positive prompt images/65. Futuristic Armors.webp",
+        "title": "Futuristic Armors",
+        "smallTitle": "Suggested CFG scale: 7 Sampler Euler a, steps: 25",
+        "description": "<i>{Prompt}</i>, looking at the camera, cyberpunk art, neo-figurative, anime, giant robot, inspired by Krenz Cushart, neoism, kawacy, wlop"
+    },
+    {
+        "imageSrc": "../assets/sd/Positive prompt images/66. Tropical Illustrations.webp",
+        "title": "Tropical Illustrations",
+        "smallTitle": "Suggested CFG scale: 7 Sampler Euler a, steps: 25",
+        "description": "<i>{Prompt}</i>, fantastic hand-dyed cotton clothes, embellished beaded feather decorative fringe knots, colorful pigtail , subtropical flowers and plants, symmetrical face, intricate, elegant, highly detailed, 8k, digital painting,trending on pinterest, harper’s bazaar, concept, art, sharp focus, illustration, Tom Bagshaw, Lawrence Alma-Tadema, Alphonse Mucha"
     }
 ]
