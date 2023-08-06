@@ -104,46 +104,40 @@ let mselectedFilter = allmFilter;
 
 
 $(document).ready(function() {
-	var zindex = 100;
+  var zindex = 100;
 
-	$("div.card").click(function(e) {
-		e.preventDefault();
+  $("div.pcards").on("click", "div.card", function(e) {
+    e.preventDefault();
 
-		var isShowing = false;
+    var isShowing = false;
 
-		if ($(this).hasClass("show")) {
-			isShowing = true;
-		}
+    if ($(this).hasClass("show")) {
+      isShowing = true;
+    }
 
-		if ($("div.pcards").hasClass("showing")) {
-			$("div.card.show")
-				.removeClass("show");
+    if ($("div.pcards").hasClass("showing")) {
+      $("div.card.show").removeClass("show");
 
-			if (isShowing) {
-				$("div.pcards")
-					.removeClass("showing");
-			} else {
-				$(this)
-					.css({
-						zIndex: zindex
-					})
-					.addClass("show");
-			}
+      if (isShowing) {
+        $("div.pcards").removeClass("showing");
+      } else {
+        $(this).css({
+          zIndex: zindex
+        }).addClass("show");
+      }
 
-			zindex++;
-		} else {
-			$("div.pcards")
-				.addClass("showing");
-			$(this)
-				.css({
-					zIndex: zindex
-				})
-				.addClass("show");
+      zindex++;
+    } else {
+      $("div.pcards").addClass("showing");
+      $(this).css({
+        zIndex: zindex
+      }).addClass("show");
 
-			zindex++;
-		}
-	});
+      zindex++;
+    }
+  });
 });
+
 
 // -------------------------------------------------
 // Copy buttons pcards
@@ -293,71 +287,88 @@ function updateNCardsGridLayout() {
 
 // Function to filter the cards based on the search query
 function filterResults(searchQuery = "") {
-	const query = searchQuery.toLowerCase().trim();
-	let atLeastOneCardMatches = false;
+    const query = searchQuery.toLowerCase().trim();
+    let atLeastOnePositiveCardMatches = false;
+    let atLeastOneNegativeCardMatches = false;
 
-	cards.forEach((card) => {
-		const title = card.querySelector(".card-title h2")?.innerText || "";
-		const smallTitle = card.querySelector(".card-title small")?.innerText || "";
-		const description = card.querySelector(".card-description")?.innerText || "";
-		const nTitle = card.querySelector(".ntitle")?.innerText || "";
-		const nDescription = card.querySelector(".description")?.innerText || "";
-		const nCopy = card.querySelector(".ncopy")?.innerText || "";
+    // Select positive cards and negative cards within the appropriate containers
+    const positiveCards = document.querySelectorAll('.pcards .card');
+    const negativeCards = document.querySelectorAll('.ncards .ncard');
 
-		const cardMatches =
-			title.toLowerCase().includes(query) ||
-			smallTitle.toLowerCase().includes(query) ||
-			description.toLowerCase().includes(query) ||
-			nTitle.toLowerCase().includes(query) ||
-			nDescription.toLowerCase().includes(query) ||
-			nCopy.toLowerCase().includes(query);
-		(currentFilter === "all" ||
-			(currentFilter === "positive" && cardMatches) ||
-			(currentFilter === "negative" && !cardMatches));
+    // Loop through each positive card
+    positiveCards.forEach((card) => {
+        const cardTitle = card.querySelector(".card-title h2")?.innerText || "";
+        const cardSmallTitle = card.querySelector(".card-title small")?.innerText || "";
+        const cardDescription = card.querySelector(".card-description")?.innerText || "";
 
-		card.style.display = cardMatches ? "inline-block" : "none";
+        const cardMatches =
+            cardTitle.toLowerCase().includes(query) ||
+            cardSmallTitle.toLowerCase().includes(query) ||
+            cardDescription.toLowerCase().includes(query);
 
-		if (cardMatches) {
-			atLeastOneCardMatches = true;
-		}
-	});
+        if (cardMatches) {
+            card.style.display = "inline-block";
+            atLeastOnePositiveCardMatches = true;
+        } else {
+            card.style.display = "none";
+        }
+    });
 
-	// Update the grid layout after filtering
-	updateNCardsGridLayout();
+    // Loop through each negative card
+    negativeCards.forEach((card) => {
+        const cardTitle = card.querySelector(".ntitle")?.innerText || "";
+        const cardDescription = card.querySelector(".description")?.innerText || "";
+        const cardCopy = card.querySelector(".ncopy")?.innerText || "";
 
-	// Show a no results message if no cards match the search query
+        const cardMatches =
+            cardTitle.toLowerCase().includes(query) ||
+            cardDescription.toLowerCase().includes(query) ||
+            cardCopy.toLowerCase().includes(query);
+
+        if (cardMatches) {
+            card.style.display = "inline-block";
+            atLeastOneNegativeCardMatches = true;
+        } else {
+            card.style.display = "none";
+        }
+    });
+
+    // Update the grid layout after filtering
+    updateNCardsGridLayout();
+
+    // Show a no results message if no cards match the search query
 	const noResultsMessage = document.querySelector(".no-results");
-	if (atLeastOneCardMatches) {
-		noResultsMessage.style.display = "none";
-	} else {
+	if (
+		(currentFilter === "positive" && !atLeastOnePositiveCardMatches) ||
+		(currentFilter === "negative" && !atLeastOneNegativeCardMatches) ||
+		(currentFilter === "all" && !atLeastOnePositiveCardMatches && !atLeastOneNegativeCardMatches)
+	) {
 		noResultsMessage.style.display = "block";
+	} else {
+		noResultsMessage.style.display = "none";
 	}
 }
-
-// Get all the cards and the pcards container
-const cardsContainer = document.querySelector(".pcards");
-const cards = document.querySelectorAll(".card, .ncard");
 
 // Attach event listener to the search input in the desktop nav bar
 const searchInputDesktopNav = document.getElementById("searchInput");
 searchInputDesktopNav.addEventListener("input", (event) => {
-	const searchQuery = event.target.value;
-	filterResults(searchQuery);
+    const searchQuery = event.target.value;
+    filterResults(searchQuery);
 });
 
 // Attach event listener to the search input in the mobile nav bar
 const searchInputMobileNav = document.querySelector('label input[type="text"]');
 searchInputMobileNav.addEventListener("input", (event) => {
-	const searchQuery = event.target.value;
-	filterResults(searchQuery);
+    const searchQuery = event.target.value;
+    filterResults(searchQuery);
 });
 
 // Close the menu when Enter key is pressed in the search input
 const menuCheckbox = document.querySelector('input[aria-label="checkbox-menu"]');
 searchInputMobileNav.addEventListener("keypress", (event) => {
-	if (event.key === "Enter") {
-		menuCheckbox.checked = false; // Uncheck the checkbox to close the menu
-	}
+    if (event.key === "Enter") {
+        menuCheckbox.checked = false; // Uncheck the checkbox to close the menu
+    }
 });
 
 // Call the updateNCardsGridLayout function on page load to set the initial layout
