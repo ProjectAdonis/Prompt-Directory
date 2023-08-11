@@ -63,7 +63,7 @@ fetch("cards.json")
         cardData.generated = true; // Mark the card as generated
 
         // Use setTimeout to introduce a delay between card generations
-        setTimeout(generateNextCard, 100); // Adjust the delay as needed
+        setTimeout(generateNextCard, 50); // Adjust the delay as needed
       }
 
       generateNextCard(); // Start generating cards
