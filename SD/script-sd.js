@@ -363,13 +363,15 @@ searchInputMobileNav.addEventListener("input", (event) => {
     filterResults(searchQuery);
 });
 
-// Close the menu when Enter key is pressed in the search input
+// Close the menu and the keyboard when Enter key is pressed in the search input
 const menuCheckbox = document.querySelector('input[aria-label="checkbox-menu"]');
 searchInputMobileNav.addEventListener("keypress", (event) => {
     if (event.key === "Enter") {
         menuCheckbox.checked = false; // Uncheck the checkbox to close the menu
+        searchInputMobileNav.blur(); // Remove focus from the input to close the keyboard
     }
 });
+
 
 // Call the updateNCardsGridLayout function on page load to set the initial layout
 window.addEventListener("load", updateNCardsGridLayout);
